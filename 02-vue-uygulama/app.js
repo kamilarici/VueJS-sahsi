@@ -5,14 +5,23 @@ const app = Vue.createApp({
  <h2>başlik:{{baslik}}</h2>
 <h3>içerik:{{icerik}} </h3>
 <p>yorum sayisi: {{yorumSayisi}}</p>
-
+<button v-on:click="ekle()">ekle</button>
+<p>{{yazi}}</p>
  `,
   data() {
     return {
       baslik: "Vue Dersi",
       icerik: "vue 3 konulari",
-      yorumSayisi: 7,
+      yorumSayisi: 8,
+      yazi: "yorum eklemek için tiklayin",
     };
+  },
+  methods: {
+    ekle() {
+      console.log("ekle metodu çalistir");
+      this.yorumSayisi++;
+      this.yazi = `${this.yorumSayisi} tane yorum girildi`;
+    },
   },
 });
 
