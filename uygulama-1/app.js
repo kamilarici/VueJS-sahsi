@@ -29,11 +29,11 @@ const app = Vue.createApp({
     selectTag(f) {
       f.selected = !f.selected;
     },
-    computed: {
-      selectTags() {
-        console.log("değişik oldu");
-        return (selecteds = this.frameworks.filter((i) => i.selected));
-      },
+  },
+  computed: {
+    selectTags() {
+      console.log("değişik oldu");
+      return (selecteds = this.frameworks.filter((i) => i.selected));
     },
   },
 });
