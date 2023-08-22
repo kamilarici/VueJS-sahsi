@@ -7,6 +7,13 @@ const app = Vue.createApp({
     
     </li>
   </ul>
+  <h3>seçilen frameworksler </h3>
+  <ul>
+    <li v-for="s in selectTags">
+    {{s.name}}
+    
+    </li>
+  </ul>
 `,
   data() {
     return {
@@ -21,6 +28,12 @@ const app = Vue.createApp({
   methods: {
     selectTag(f) {
       f.selected = !f.selected;
+    },
+    computed: {
+      selectTags() {
+        console.log("değişik oldu");
+        return (selecteds = this.frameworks.filter((i) => i.selected));
+      },
     },
   },
 });
