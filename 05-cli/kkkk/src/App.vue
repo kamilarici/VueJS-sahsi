@@ -1,7 +1,7 @@
 <template>
   <Deneme />
   <Header @temizle="sil" />
-  <input />
+  <input ref="metin" />
 </template>
 
 <script>
