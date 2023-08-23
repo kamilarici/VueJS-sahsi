@@ -4,6 +4,7 @@ const app = Vue.createApp({
   <ul>
     <li v-for="i in icecekler" class="li" :class="{secilen:i.sec}" @click="icecekSec(i)"> {{i.isim}}</li>
   </ul>
+  <button @click="secilenIceceklerGetir" >secilen icecekler <button>
 `,
   data() {
     return {
@@ -18,6 +19,10 @@ const app = Vue.createApp({
   methods: {
     icecekSec(icecek) {
       icecek.sec = !icecek.sec;
+    },
+    secilenIceceklerGetir() {
+      const secilenler = this.icecekler.filter((i) => i.sec == true);
+      console.log(secilenler);
     },
   },
 });
