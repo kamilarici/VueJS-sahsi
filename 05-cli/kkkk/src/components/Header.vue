@@ -1,16 +1,18 @@
 <template>
-  <div>
-    <h1>
-      {{ baslik }}
-    </h1>
+  <div @click="temizle">
+    <h1>temizle</h1>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["baslik"],
   data() {
     return {};
+  },
+  methods: {
+    temizle() {
+      this.$emit("temizle");
+    },
   },
 };
 </script>

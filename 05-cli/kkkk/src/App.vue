@@ -1,7 +1,7 @@
 <template>
   <Deneme />
-  <Header :baslik="yazi" />
-  <h1>CLI ile proje</h1>
+  <Header @temizle="sil" />
+  <input />
 </template>
 
 <script>
@@ -18,7 +18,11 @@ export default {
       yazi: "merhaba vue 33",
     };
   },
-  methods: {},
+  methods: {
+    sil() {
+      this.$refs.metin.value = "";
+    },
+  },
 };
 </script>
 
