@@ -4,8 +4,13 @@ const app = Vue.createApp({
   <ul>
     <li v-for="i in icecekler" class="li" :class="{secilen:i.sec}" @click="icecekSec(i)"> {{i.isim}}</li>
   </ul>
-  <button @click="secilenIceceklerGetir" >secilen icecekler <button>
-`,
+  <button @click="secilenIceceklerGetir">secilen icecekler</button>
+  <hr />
+<h3>secilen icecekler</h3>
+<ul>
+  <li v-for="i in secilenIcecekler" >{{i.isim}}</li>
+</ul>
+ `,
   data() {
     return {
       icecekler: [
@@ -25,6 +30,13 @@ const app = Vue.createApp({
       console.log(secilenler);
     },
   },
+  computed: {
+    secilenIcecekler() {
+      console.log("değişiklikler algılandı");
+      return (secilenler = this.icecekler.filter((i) => i.sec));
+    },
+  },
 });
 
 app.mount("#app");
+//? computed özelliği ile tekrardan işlenmiş verileri gösterebiliriz
