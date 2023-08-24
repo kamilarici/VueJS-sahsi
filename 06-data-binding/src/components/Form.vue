@@ -40,7 +40,7 @@
       <label>hobiler</label>
       <input type="text" v-model="aktifHobi" @keyup="hobiEkle" />
       <div v-for="hobi in hobiler" :key="hobi">
-        {{ hobi }}
+        <span @click="hobiSil(hobi)"> {{ hobi }}</span>
       </div>
     </form>
   </div>
