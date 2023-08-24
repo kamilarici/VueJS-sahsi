@@ -36,12 +36,15 @@
       <p>istekler:{{ istekler }}</p>
     </form>
     //? *********
-    <form>
+    <form @submit.prevent="handleSubmit">
       <label>hobiler</label>
       <input type="text" v-model="aktifHobi" @keyup="hobiEkle" />
       <div v-for="hobi in hobiler" :key="hobi">
         <span @click="hobiSil(hobi)"> {{ hobi }}</span>
       </div>
+      <br />
+      <!-- <button @click.prevent="handleSubmit">submit</button> -->
+      <button>submit</button>
     </form>
   </div>
 </template>
@@ -72,6 +75,9 @@ export default {
       this.hobiler = this.hobiler.filter((item) => {
         return hobi !== item;
       });
+    },
+    handleSubmit() {
+      console.log(this.hobiler);
     },
   },
 };
