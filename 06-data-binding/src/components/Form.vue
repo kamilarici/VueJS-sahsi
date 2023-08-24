@@ -68,6 +68,11 @@ export default {
         this.aktifHobi = "";
       }
     },
+    hobiSil(hobi) {
+      this.hobiler = this.hobiler.filter((item) => {
+        return hobi !== item;
+      });
+    },
   },
 };
 </script>
