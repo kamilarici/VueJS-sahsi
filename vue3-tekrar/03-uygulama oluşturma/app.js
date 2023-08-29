@@ -3,6 +3,7 @@ const app = Vue.createApp({
   <h2>Başlik: {{baslik}}</h2>
   <h3>İçerik: {{icerik}} </h3>
   <p>uygulama sayisi: {{appAdet}} </p> 
+  <button v-on:click="appEkle()">uygulama ekle</button>
   `,
   data() {
     return {
@@ -10,6 +11,12 @@ const app = Vue.createApp({
       icerik: "composition api-router-firebase",
       appAdet: 5,
     };
+  },
+  methods: {
+    // ?dataları oluşturduğumuzda değiştirmek için methodlardan yararlanacağız
+    appEkle() {
+      console.log("appEkle metodu çalıştı");
+    },
   },
 });
 
