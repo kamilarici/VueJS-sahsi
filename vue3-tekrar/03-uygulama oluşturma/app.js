@@ -16,6 +16,8 @@ const app = Vue.createApp({
     // ?dataları oluşturduğumuzda değiştirmek için methodlardan yararlanacağız
     appEkle() {
       console.log("appEkle metodu çalıştı");
+      //? butona tıklandığında appAdet artırmak için appEkle fonsiyonu içinde this ile appAdet e ulaşıp değerini 1 artırabiliriz
+      this.appAdet++;
     },
   },
 });
