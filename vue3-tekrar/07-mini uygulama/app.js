@@ -8,7 +8,7 @@ const app = Vue.createApp({
 <hr />
 <h3>secilen icecekler</h3>
 <ul>
-  <li v-for="i in secilenIcecekler" class="secilen">
+  <li v-for="i in secilenIcecekler" class="secilen" >
 {{i.isim}}
   </li>
 </ul>
@@ -34,6 +34,7 @@ icecekler:[
       }
   
   },
+  //? computed:işlenmiş verileri tekrardan ekranda görebiliriz return ederek 
   computed:{
     secilenIcecekler(){
       console.log("degisiklikler algilandı");
