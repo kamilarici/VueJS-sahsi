@@ -13,5 +13,5 @@ const app = Vue.createApp({
   },
   methods: {},
 });
-// deneme
+// denem
 app.mount("#app");
