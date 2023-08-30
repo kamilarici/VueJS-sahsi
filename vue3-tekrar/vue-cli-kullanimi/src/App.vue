@@ -1,11 +1,11 @@
 <template>
   <Header/>
-  <h3>{{baslik}}</h3>
+  <!-- <h3>{{baslik}}</h3>
   <input type="text" ref="isim"/>
   <input type="text" ref="parola"/>
   <button @click="handleClick" > tıkla</button>
   <br>
-  {{ sonuc }}
+  {{ sonuc }} -->
 </template>
 
 <script>
@@ -15,23 +15,23 @@ import Header from './components/Header.vue';
 export default {
   name: 'App',
   components: {
-    // HelloWorld
+
     Header,
     
 },
   data(){
 return{
-  baslik:"merhaba vue cli",
-  sonuc:""
+  // baslik:"merhaba vue cli",
+  // sonuc:""
 }
   },
   methods:{
-handleClick(){
-  console.log(this.$refs.isim.value);
-  console.log(this.$refs.parola.value);
-  console.log(this.$refs
-  );
-}
+// handleClick(){
+//   console.log(this.$refs.isim.value);
+//   console.log(this.$refs.parola.value);
+//   console.log(this.$refs
+//   );
+// }
   },
 
 }
