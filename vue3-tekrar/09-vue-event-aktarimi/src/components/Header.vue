@@ -12,6 +12,7 @@ data(){
 methods:{
     temizle(){
         this.$emit("temizle")
+        //? Bir Vue bileşeni, başka bir bileşene bir olayı tetiklemek için $emit kullanabilir ve hedef bileşen bu olayı dinleyebilir 
     }
 }
 

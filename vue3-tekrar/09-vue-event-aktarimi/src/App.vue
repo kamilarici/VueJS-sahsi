@@ -1,4 +1,5 @@
 <template>
+  <!-- //? dinlediğimiz yerdeki metodu event olarak kullanıp temizle div ine basıldığında input içi temizlenir -->
  <Header @temizle="sil"/>
  <input ref="metin" />
 </template>
