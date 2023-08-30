@@ -1,23 +1,28 @@
 <template>
   <Header/>
+  <h1>CLI ile  proje</h1>
   <!-- <h3>{{baslik}}</h3>
   <input type="text" ref="isim"/>
   <input type="text" ref="parola"/>
   <button @click="handleClick" > tıkla</button>
   <br>
   {{ sonuc }} -->
+  <Footer/>
+
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import Footer from './components/Footer.vue';
 import Header from './components/Header.vue';
+
 
 export default {
   name: 'App',
   components: {
 
     Header,
-    
+    Footer,
 },
   data(){
 return{

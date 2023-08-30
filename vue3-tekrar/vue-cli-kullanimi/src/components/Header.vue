@@ -1,6 +1,7 @@
 <template>
   <div>
-    {{ baslik }}
+    <h1>    {{ baslik }}</h1>
+ 
   </div>
 
 </template>
@@ -16,6 +17,10 @@ export default {
 }
 </script>
 
-<style>
-
+<!-- //?  sadece bu componente geçerli olsun istiyorsak scoped deriz ama global olarak tüm h1 ler aynı style alsın istersek scoped vermeyiz  -->
+<style scoped >
+h1{
+  color: red;
+  font-size: 40px;
+}
 </style>
