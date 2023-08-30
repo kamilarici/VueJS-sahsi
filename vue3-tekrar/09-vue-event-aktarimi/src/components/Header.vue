@@ -1,4 +1,7 @@
 <template>
+  <!-- <div @click.shift="temizle">  shift sağ tuş ile çalışır-->
+  <!-- <div @click.alt="temizle">  ""-->
+  <!-- <div @click.right="temizle"> mause sağ click ile çalışır -->
   <div @click="temizle">
     <h1>temizle</h1>
   </div>

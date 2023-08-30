@@ -2,6 +2,7 @@
   <!-- //? dinlediğimiz yerdeki metodu event olarak kullanıp temizle div ine basıldığında input içi temizlenir -->
  <Header @temizle="sil"/>
  <input ref="metin" />
+ <!-- //? ref (referans) Vue.js'de kullanılan bir özelliktir ve DOM öğelerine veya Vue bileşenlerine erişmek için kullanılır. ref ile bir DOM öğesine veya bileşene bir referans vererek, JavaScript kodunuzun bu öğeye erişmesini ve üzerinde işlem yapmasını sağlayabilirsiniz. -->
 </template>
 
 <script>
