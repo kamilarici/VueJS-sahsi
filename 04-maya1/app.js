@@ -13,5 +13,5 @@ const app = Vue.createApp({
   },
   methods: {},
 });
-// denem
+// dene
 app.mount("#app");
