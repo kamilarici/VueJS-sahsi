@@ -1,17 +1,28 @@
 <template>
   <div class="home">
-<div v-for="yap in yapilacaklar" :key="yap.id">
-<p> {{ yap.baslik }} </p>
-</div>
+    <div v-if="yapilacaklar.length">
+      <div v-for="yap in yapilacaklar" :key="yap.id">
+          
+          <Yapilacak :yapilacak="yap"/>
+     </div>
+    </div>
+    <div v-else>
+<p>yapilacaklar yükleniyor</p>
+    </div>
   </div>
 </template>
 
 <script>
+import Yapilacak from '../components/Yapilacak.vue'
 // @ is an alias to /src
+ 
 
 
 export default {
   name: 'HomeView',
+  components:{
+    Yapilacak
+  },
   data(){
     return{
       yapilacaklar:[]

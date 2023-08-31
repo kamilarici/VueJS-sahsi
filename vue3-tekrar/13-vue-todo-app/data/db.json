@@ -3,5 +3,6 @@
         {"id":1,"baslik":"kitap oku", "icerik":"harry potter kitabindan 30 sayfa oku","yapildi":true},
         {"id":2,"baslik":"dizi izle", "icerik":"sharlock holmes 2 sezon 3 bölüm izle","yapildi":false},
         {"id":3,"baslik":"alısveris yap", "icerik":"sebze ve meyve al","yapildi":false}
+     
     ]
 }
