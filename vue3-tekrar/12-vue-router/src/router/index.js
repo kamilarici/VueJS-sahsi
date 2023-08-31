@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import Personel from "../views/Personel.vue"
 import Deneme from "../views/Deneme.vue"
 import PersonelDetay from "../views/PersonelDetay.vue"
+import NotFount from "../views/NotFount.vue"
 
 const routes = [
   {
@@ -34,6 +35,18 @@ const routes = [
     name:'PersonelDetay',
     component:PersonelDetay,
     props:true
+  },
+  {
+    // ? redirect personel yerine personeller dahi yazılsa uzantı yine çalışır ve uzantıyı personel olarak düzeltir
+    path:'/personeller',
+    redirect:'/personel'
+
+  },
+  {
+    //? path:'/:catchAll(.*)'ile hatalı path girildiğinde çıkacak sayfayı ayarlarız .NotFount sayfası oluşturusuz ve yönlendirmeleri oraya yaparız 
+path:'/:catchAll(.*)',
+name:'NotFount',
+component:NotFount
   }
 ]
 
