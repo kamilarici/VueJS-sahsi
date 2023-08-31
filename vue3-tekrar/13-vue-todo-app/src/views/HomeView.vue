@@ -3,7 +3,7 @@
     <div v-if="yapilacaklar.length">
       <div v-for="yap in yapilacaklar" :key="yap.id">
           
-          <Yapilacak :yapilacak="yap"/>
+          <Yapilacak :yapilacak="yap" @sil="silHandle"/>
      </div>
     </div>
     <div v-else>
@@ -34,6 +34,13 @@ export default {
     .then((data)=>this.yapilacaklar=data)
     .catch((err)=>console.log(err))
  
+  },
+  methods:{
+    silHandle(id){
+      this.yapilacaklar=this.yapilacaklar.filter(yap=>{
+        return yap.id!==id
+      })
+    }
   }
 
 }

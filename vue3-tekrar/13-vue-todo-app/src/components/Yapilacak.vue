@@ -3,6 +3,11 @@
   <div class="yapilacak">
     <div class="baslik">
         <h3 @click="detayGoster=!detayGoster">{{ yapilacak.baslik }}</h3>
+        <div class="icon">
+            <i class="fa-solid fa-pen"></i>
+            <i class="fa-solid fa-trash" @click="yapilacakSil"></i>
+           <i class="fa-solid fa-check"></i>
+        </div>
     </div>
     <div v-if="detayGoster" class="detay">
         <p>{{ yapilacak.icerik }}</p>
@@ -17,8 +22,16 @@ export default {
     props:["yapilacak"],
    data(){
    return{
-    detayGoster:false
+    detayGoster:false,
+    uri:'http://localhost:3000/yapilacaklar/'+this.yapilacak.id
    }
+},
+methods:{
+    yapilacakSil(){
+fetch(this.uri,{method:'DELETE'})
+.then(()=>this.$emit('sil',this.yapilacak.id))
+.catch((err)=>console.log(err))
+    }
 }
 }
 </script>
@@ -39,4 +52,19 @@ h3{
     cursor: pointer;
 }
 
+.baslik{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+i{
+    margin-right: 10px;
+    font-size: 25px;
+    color: #ccc;
+    cursor: pointer;
+  
+}
+i:hover{
+    color: #2f3542;
+}
 </style>
