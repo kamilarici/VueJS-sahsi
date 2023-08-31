@@ -2,9 +2,9 @@
      
   <div class="yapilacak">
     <div class="baslik">
-        <h3>{{ yapilacak.baslik }}</h3>
+        <h3 @click="detayGoster=!detayGoster">{{ yapilacak.baslik }}</h3>
     </div>
-    <div class="detay">
+    <div v-if="detayGoster" class="detay">
         <p>{{ yapilacak.icerik }}</p>
     </div>
   </div>
@@ -14,9 +14,12 @@
 export default {
 
 
-    props:["yapilacak"]
-   
-
+    props:["yapilacak"],
+   data(){
+   return{
+    detayGoster:false
+   }
+}
 }
 </script>
 
