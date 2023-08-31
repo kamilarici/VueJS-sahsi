@@ -1,9 +1,13 @@
+<!-- //? router linkleri to name ve path olarak yönlendirebiliriz ..kullanım şekilleri aşağıdaki gibidir  -->
+
 <template>
   <nav>
     <!-- <router-link to="/">Home</router-link> | -->
     <router-link :to="{name:'home'}">Home</router-link> |
     <!-- <router-link to="/about">About</router-link> -->
-    <router-link :to="{name:'about'}">About</router-link>
+    <router-link :to="{name:'about'}">About</router-link>  |
+    <router-link :to="{path:'/personel'}">personel</router-link>  |
+    <router-link :to="{name:'deneme'}">deneme</router-link>
   </nav>
   <router-view/>
   <!-- //? tıkladığımız linkteki components router-viev doldurur -->
