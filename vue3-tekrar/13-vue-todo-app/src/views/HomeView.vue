@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <NavbarFilter @filterDurum="aktifSekme=$event"/>
+    <NavbarFilter @filterDurum="aktifSekme=$event" :aktifSekme="aktifSekme"/>
     <div v-if="yapilacaklar.length">
-      <div v-for="yap in yapilacaklar" :key="yap.id">
+      <div v-for="yap in filtrelenmisYapilacaklar" :key="yap.id">
           
           <Yapilacak :yapilacak="yap" @sil="silHandle" @yapildi="yapildiHandle"/>
      </div>
@@ -50,6 +50,17 @@ export default {
         return yapilacak.id ==id
       })
       yap.yapildi=!yap.yapildi
+    }
+  },
+  computed:{
+    filtrelenmisYapilacaklar(){
+      if(this.aktifSekme==='tamamlandi'){
+        return this.yapilacaklar.filter(yapilacak=>yapilacak.yapildi)
+      }
+      if(this.aktifSekme==='yapiliyor'){
+        return this.yapilacaklar.filter(yapilacak=>!yapilacak.yapildi)
+      }
+      return this.yapilacaklar
     }
   }
 

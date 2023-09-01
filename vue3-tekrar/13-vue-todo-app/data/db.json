@@ -16,7 +16,7 @@
       "id": 3,
       "baslik": "alısveris yap",
       "icerik": "sebze ve meyve al",
-      "yapildi": false
+      "yapildi": true
     },
     {
       "id": 22080,
@@ -28,6 +28,12 @@
       "id": 64370,
       "baslik": "en yeni yapılacak",
       "icerik": "içerik geliyor ",
+      "yapildi": false
+    },
+    {
+      "id": 64292,
+      "baslik": "sadad",
+      "icerik": "asdasd",
       "yapildi": false
     }
   ]
