@@ -31,16 +31,17 @@ methods:{
 fetch(this.uri,{method:'DELETE'})
 .then(()=>this.$emit('sil',this.yapilacak.id))
 .catch((err)=>console.log(err))
-    }
+   
 },
 toggle(){
     fetch(this.uri,{
         method:'PATCH',
-        headers:{'content-Type':'application/json'},
-        body:JSON.stringify({yapildi:!this.yapilacak.yapildi}).then(()=>{
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({yapildi:!this.yapilacak.yapildi})
+    }).then(()=>{
             this.$emit('yapildi',this.yapilacak.id)
         }).catch((err)=>console.log(err))
-    })
+}
 }
 }
 </script>
