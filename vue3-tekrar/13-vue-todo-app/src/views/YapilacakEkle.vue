@@ -2,7 +2,7 @@
   <form @submit.prevent="yapilacakEkle">
 <label >Baslik:</label>
 <input type="text" v-model="baslik" required>
-<label >İçerik:</label>
+<label >icerik:</label>
 <input type="text" v-model="icerik" required>
 <button>Ekle</button>
   </form>
@@ -12,13 +12,27 @@
 export default {
 data(){
   return{
-    baslik:"",
-    icerik:""
+    baslik:'',
+    icerik:''
   }
 },
 methods:{
     yapilacakEkle(){
-        console.log(this.baslik,this.icerik);
+   let yapilacak={
+    id:Math.floor(Math.random()*100000),
+    baslik:this.baslik,
+    icerik:this.icerik,
+    yapildi:false,
+    
+   }
+   
+   fetch('http://localhost:3000/yapilacaklar',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(yapilacak)
+   }).then(()=>{
+    this.$router.push('/')
+   })
     }
 }
 }
