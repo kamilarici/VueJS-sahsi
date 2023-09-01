@@ -1,12 +1,12 @@
 <template>
      
-  <div class="yapilacak">
+  <div class="yapilacak" :class="{yapildi:yapilacak.yapildi}">
     <div class="baslik">
         <h3 @click="detayGoster=!detayGoster">{{ yapilacak.baslik }}</h3>
         <div class="icon">
             <i class="fa-solid fa-pen"></i>
             <i class="fa-solid fa-trash" @click="yapilacakSil"></i>
-           <i class="fa-solid fa-check" @click="toggle"></i>
+           <i class="fa-solid fa-check" @click="toggle" :class="{tick:yapilacak.yapildi}"></i>
         </div>
     </div>
     <div v-if="detayGoster" class="detay">
@@ -76,5 +76,11 @@ i{
 }
 i:hover{
     color: #2f3542;
+}
+.yapilacak.yapildi{
+    border: 3px solid green;
+}
+.tick{
+    color: green;
 }
 </style>

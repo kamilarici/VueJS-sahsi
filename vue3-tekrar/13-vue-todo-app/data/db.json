@@ -10,13 +10,13 @@
       "id": 2,
       "baslik": "kitap okuo",
       "icerik": "harry potteooor kitabindan 30 sayfa oku",
-      "yapildi": true
+      "yapildi": false
     },
     {
       "id": 3,
       "baslik": "alısveris yap",
       "icerik": "sebze ve meyve al",
-      "yapildi": false
+      "yapildi": true
     }
   ]
 }
