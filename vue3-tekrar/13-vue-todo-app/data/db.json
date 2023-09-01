@@ -2,14 +2,14 @@
   "yapilacaklar": [
     {
       "id": 1,
-      "baslik": "kitap oku",
-      "icerik": "harry potter kitabindan 30 sayfa oku",
+      "baslik": "kitap okumak",
+      "icerik": "harry potter kitabindan 100 sayfa oku",
       "yapildi": true
     },
     {
       "id": 2,
-      "baslik": "kitap okuo",
-      "icerik": "harry potteooor kitabindan 30 sayfa oku",
+      "baslik": "kitap okuoooot",
+      "icerik": "harry potteooor kitabindan 30 sayfa okurrr",
       "yapildi": false
     },
     {

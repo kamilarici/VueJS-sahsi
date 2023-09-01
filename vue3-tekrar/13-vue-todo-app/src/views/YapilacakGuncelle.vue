@@ -1,6 +1,6 @@
 <template>
   <h1>Yapilacak Güncelle  {{ id }}</h1>
-  <form>
+  <form @submit.prevent="handleSubmit">
 <label >Baslik:</label>
 <input type="text" v-model="baslik"/>
 <label >İcerik:</label>
@@ -16,9 +16,29 @@ export default {
 data(){
     return{
         baslik:'',
-        icerik:''
+        icerik:'',
+        uri:'http://localhost:3000/yapilacaklar/'+this.id
         
     }
+},
+mounted(){
+  fetch(this.uri)
+  .then((res)=>res.json())
+  .then(data=>{
+    this.baslik=data.baslik;
+    this.icerik=data.icerik
+  })
+},
+methods:{
+  handleSubmit(){
+    fetch(this.uri,{
+      method:'PATCH',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({baslik:this.baslik,icerik:this.icerik})
+    }).then(()=>{
+      this.$router.push('/')
+    }).catch((err)=>console.log(err))
+  }
 }
 }
 </script>
