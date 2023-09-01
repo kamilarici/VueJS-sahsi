@@ -4,7 +4,7 @@
     <div class="baslik">
         <h3 @click="detayGoster=!detayGoster">{{ yapilacak.baslik }}</h3>
         <div class="icon">
-            <i class="fa-solid fa-pen"></i>
+            <router-link :to="{name:'YapilacakGuncelle',params:{id:yapilacak.id}}"><i class="fa-solid fa-pen" ></i></router-link>
             <i class="fa-solid fa-trash" @click="yapilacakSil"></i>
            <i class="fa-solid fa-check" @click="toggle" :class="{tick:yapilacak.yapildi}"></i>
         </div>
