@@ -1,7 +1,9 @@
 <template>
+  <h1>FETCH METODU VE PROPS -hata fırlatma</h1>
   <div v-for="post in postlar" :key="post.id">
   {{ post.title }}
   </div>
+  <div v-if="hatalar"> {{ hatalar }} </div>
 </template>
 
 <script>
@@ -21,8 +23,17 @@ setup(){
 
 
   const verileriYukle=async()=>{
-    let veriler=await fetch('https://jsonplaceholder.typicode.com/posts');
+try {
+  let veriler=await fetch('https://jsonplaceholder.typicode.com/posts');
     postlar.value=await veriler.json()
+
+//? catch e hata fırlatmak
+    if(!veriler.ok){
+     throw new Error('verilere erişilemedi') 
+    }
+} catch (error) {
+  hatalar.value=error.message
+}
   }
 
 verileriYukle()
