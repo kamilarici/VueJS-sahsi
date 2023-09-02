@@ -5,6 +5,7 @@
 <div v-for="isim in bulunanlar">
 {{ isim }}
 </div>
+<button @click="durdur">Durdur</button>
   </div>
 </template>
 
@@ -21,14 +22,21 @@ setup(){
 
 
 // ? watch içinde sadece bir değişken tanımlanır ve o değiştiğinde çalışır ve kontrol edilir 
-  watch(ara,()=>{
+ const watchN= watch(ara,()=>{
     console.log('watch çalisti');
   })
 //?watchEffect içerisinde birden fazla  değişen değişken tanımlandığında  herhangi birinin değişmesi ile çalışır 
-  watchEffect(()=>{
+ const watchEffectN= watchEffect(()=>{
     console.log('watch effect calisti',isimler.value);
+    console.log('watch effect calisti',ara.value);
   })
-  return {isimler,ara,bulunanlar}
+
+// watch ve watcheffect fonk durdurmak için deiişkene tanımladık ve butona click vererek durdur fonk çağırdık ve durdurduk
+  const durdur=()=>{
+    watchN();
+    watchEffectN()
+  }
+  return {isimler,ara,bulunanlar,durdur}
 }
 }
 </script>
