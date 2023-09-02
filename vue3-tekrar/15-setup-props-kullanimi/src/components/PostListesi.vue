@@ -9,7 +9,12 @@
 <!-- ? verileri burada çekebiliriz (sayfa altında örneği var ) ama başka sayfalarda da kullanacaksak global olarak çekip gerekli yerlerde kullanmak için çağırmamız yeterli bura da da ihtiyacımız oldu ve 1**** getPost  import etmek gerekir 2******gerekli fonk ve dataları destrancing etmek gerekr  ve kullanacağımız fonk return etmemiz yeterlidir -->
 <script>
 import {ref} from 'vue'
-import getPosts from '../composables/getPosts'
+import getPosts from '../composables/getPosts' 
+
+
+import { useRoute, useRouter} from 'vue-router'
+
+
 export default {
   //
 // props:['postlar'],
@@ -20,6 +25,13 @@ export default {
 // }
 //************************ */
 setup(){
+
+const route=useRoute();
+const router=useRouter();
+console.log(router);
+console.log(route);
+//? yönlendirmeler bunlar aracılığı ile yapılacak sonraki videolarda ayrıntı var
+
 const {postlar,hatalar,verileriYukle}=getPosts()
 
 
