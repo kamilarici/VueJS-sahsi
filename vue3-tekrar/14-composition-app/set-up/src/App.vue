@@ -1,7 +1,8 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">SETUP</router-link> |
+    <router-link to="/about">REF</router-link> |
+    <router-link to="/reactif-template">REACTİF-TEMPLATE</router-link>
   </nav>
   <router-view/>
 </template>
