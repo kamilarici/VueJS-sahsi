@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <h1>home comp.</h1>
+    <H1>SETUP</H1>
+ <p> {{ ad }}- {{ gorev }}</p>
+ <button @click="butonTiklandi">tikla</button>
   </div>
 </template>
 
@@ -10,10 +12,17 @@ import {onMounted} from 'vue'
 export default {
   name: 'HomeView',
   setup(){
-    console.log('setup yüklendi');
-    onMounted(()=>{
-      console.log('mounted yüklendi');
-    })
+// ? burada tanımlananlar direk method olarak görecek setup
+    let ad='luffy';
+    let gorev='kaptan';
+    const butonTiklandi=()=>{
+      console.log('buton tiklandi');
+    }
+    return{ad,gorev,butonTiklandi}
+    // console.log('setup yüklendi');
+    // onMounted(()=>{
+    //   console.log('mounted yüklendi');
+    // })
   },
 //   mounted(){
 // console.log('mounted yüklendi');
