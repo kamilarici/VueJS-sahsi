@@ -1,18 +1,28 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>home comp.</h1>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import {onMounted} from 'vue'
 
 export default {
   name: 'HomeView',
+  setup(){
+    console.log('setup yüklendi');
+    onMounted(()=>{
+      console.log('mounted yüklendi');
+    })
+  },
+//   mounted(){
+// console.log('mounted yüklendi');
+//   },
+//   created(){
+// console.log('created yüklendi');
+//   },
   components: {
-    HelloWorld
+  
   }
 }
 </script>
