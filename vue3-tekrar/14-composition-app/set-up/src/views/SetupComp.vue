@@ -18,7 +18,16 @@ setup(){
   const bulunanlar=computed(()=>{
     return isimler.value.filter((isim)=>isim.includes(ara.value))
   })
-  watch(ara)
+
+
+// ? watch içinde sadece bir değişken tanımlanır ve o değiştiğinde çalışır ve kontrol edilir 
+  watch(ara,()=>{
+    console.log('watch çalisti');
+  })
+//?watchEffect içerisinde birden fazla  değişen değişken tanımlandığında  herhangi birinin değişmesi ile çalışır 
+  watchEffect(()=>{
+    console.log('watch effect calisti',isimler.value);
+  })
   return {isimler,ara,bulunanlar}
 }
 }
