@@ -2,7 +2,8 @@
   <nav>
     <router-link to="/">SETUP</router-link> |
     <router-link to="/about">REF</router-link> |
-    <router-link to="/reactif-template">REACTİF-TEMPLATE</router-link>
+    <router-link to="/reactif-template">REACTİF-TEMPLATE</router-link> |
+    <router-link to="/setup-computed">SETUP-COMPUTED</router-link>
   </nav>
   <router-view/>
 </template>

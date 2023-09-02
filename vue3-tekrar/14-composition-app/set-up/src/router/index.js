@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ReactifTemplate from '@/views/ReactifTemplate.vue'
+import SetupComp from '../views/SetupComp.vue'
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     path: '/reactif-template',
     name: 'ReactifTemplate',
     component: ReactifTemplate
+  },
+  {
+    path: '/setup-computed',
+    name: 'SetupComp',
+    component: SetupComp
   },
 ]
 

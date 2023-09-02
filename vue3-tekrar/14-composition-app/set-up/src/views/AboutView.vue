@@ -4,6 +4,7 @@
     <h1> REF</h1>
     <button @click="butonTiklandi">tikla</button>
     <p>{{ ad }}</p>
+    <input type="text" v-model="ad">
     <!-- <h1>This is an about page</h1>
     <button @click="butonTiklandi">tıkla</button>
     <p ref="bilgiler"> p etiketi</p> -->
