@@ -8,9 +8,11 @@
 
 <script>
 import {onMounted} from 'vue'
+
 // ? setup tüm fonsiyonların üzerinde bir fonk old. için her zaman ilk o çalışır 
 export default {
   name: 'HomeView',
+
   setup(){
 // ? burada tanımlananlar direk method olarak görecek setup
     let ad='luffy';
