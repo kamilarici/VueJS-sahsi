@@ -1,6 +1,4 @@
 import firebase from 'firebase/app';
-
-
 import 'firebase/firestore';
 
 
@@ -18,4 +16,3 @@ const firebaseConfig = {
 
   export {firestoreRef}
 
-  console.log(firestoreRef);
