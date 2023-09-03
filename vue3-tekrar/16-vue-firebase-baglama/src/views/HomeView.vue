@@ -11,10 +11,12 @@ import {firestoreRef} from '../firebase/config'
 export default {
   name: 'HomeView',
   setup(){
-console.log(firestoreRef);
+    console.log(firestoreRef);
+
   },
   components: {
    
   }
 }
 </script>
+
