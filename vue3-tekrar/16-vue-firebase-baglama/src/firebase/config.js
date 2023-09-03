@@ -1,5 +1,7 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+
+// import firebase from 'firebase/app';
+import {getFirestore} from 'firebase/firestore';
 
 
 const firebaseConfig = {
@@ -11,8 +13,8 @@ const firebaseConfig = {
   appId: "1:783623978322:web:323824bbdb5e2a61d68e8b"
 };
 
-  firebase.initializeApp(firebaseConfig);
-  const firestoreRef=firebase.firestore();
+  initializeApp(firebaseConfig);
+  const firestoreRef=getFirestore();
 
   export {firestoreRef}
 
