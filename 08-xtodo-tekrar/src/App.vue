@@ -1,7 +1,5 @@
 <template>
   <nav>
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
     <div class="contetnt mx-5"></div>
     <h1>Todo App</h1>
     <form @submit.prevent="addTodo">
