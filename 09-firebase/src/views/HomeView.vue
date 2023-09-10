@@ -1,5 +1,7 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <H1>FİREBASE</H1>
+  </div>
 </template>
 
 <script>
