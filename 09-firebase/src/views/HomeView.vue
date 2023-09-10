@@ -21,7 +21,9 @@ export default {
       const fbDataName = collection(db, "books");
       const fbDocs = await getDocs(fbDataName);
       const data = fbDocs.docs.map((doc) => doc.data());
+      const docID = fbDocs.docs.map((doc) => doc.id);
 
+      console.log(docID);
       console.log(data);
       return data;
     });
