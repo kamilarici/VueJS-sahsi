@@ -10,3 +10,4 @@ const firebaseConfig = {
 };
 
 const fb = initializeApp(firebaseConfig);
+export { fb };
