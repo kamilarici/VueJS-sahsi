@@ -20,13 +20,14 @@ export default {
   setup() {
     onMounted(async () => {
       const db = getFirestore(fb);
-      const fbDataName = collection(db, "books");
-      const fbDocs = await getDocs(fbDataName);
+      const fbRef = collection(db, "books");
+      const fbDocs = await getDocs(fbRef);
       const data = fbDocs.docs.map((doc) => doc.data());
       const docID = fbDocs.docs.map((doc) => doc.id);
 
       console.log(docID);
       console.log(data);
+      // yeni belge
       return data;
     });
   },
