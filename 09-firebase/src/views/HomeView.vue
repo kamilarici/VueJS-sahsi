@@ -11,6 +11,7 @@ import {
   collection,
   getDocs,
   get,
+  addDoc,
 } from "firebase/firestore/lite";
 
 import { fb } from "../firebase/config";
@@ -28,6 +29,11 @@ export default {
       console.log(docID);
       console.log(data);
       // yeni belge
+      addDoc(fbRef, {
+        name: "sokratesin savunmasi",
+        author: "platon",
+        pageCount: 200,
+      });
       return data;
     });
   },
