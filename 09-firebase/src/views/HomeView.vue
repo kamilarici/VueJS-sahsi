@@ -10,8 +10,10 @@ import {
   getFirestore,
   collection,
   getDocs,
+  doc,
   get,
   addDoc,
+  deleteDoc,
 } from "firebase/firestore/lite";
 
 import { fb } from "../firebase/config";
@@ -29,11 +31,13 @@ export default {
       console.log(docID);
       console.log(data);
       // yeni belge
-      addDoc(fbRef, {
-        name: "sokratesin savunmasi",
-        author: "platon",
-        pageCount: 200,
-      });
+      // addDoc(fbRef, {
+      //   name: "sokratesin savunmasi",
+      //   author: "platon",
+      //   pageCount: 200,
+      // });
+      const docRef = doc(db, "books", "YFp9Shn4KZCyCIav4YLQ");
+      deleteDoc(docRef);
       return data;
     });
   },
