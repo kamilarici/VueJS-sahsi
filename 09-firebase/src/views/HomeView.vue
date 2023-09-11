@@ -39,14 +39,16 @@ export default {
       // });
       // const docRef = doc(db, "books", "LTJsAbsdvF7GsLYJQYcw");
       // deleteDoc(docRef);
-      const q = query(fbRef, where("pageCount", "==", 200));
-      onSnapshot(q, (ss) => {
-        let books = [];
-        ss.docs.forEach((doc) => {
-          books.push({ ...doc.data(), id: doc.id });
-        });
-        console.log(books);
-      });
+      //************hata var */
+      // const q = query(fbRef, where("pageCount", "==", 200));
+      // onSnapshot(q, (ss) => {
+      //   let books = [];
+      //   ss.docs.forEach((doc) => {
+      //     books.push({ ...doc.data(), id: doc.id });
+      //   });
+      //   console.log(books);
+      // });
+      //*************************** */
 
       const docRef = doc(db, "books", "OwR5UsIFwCPy8o7yCynB");
       updateDoc(docRef, {
