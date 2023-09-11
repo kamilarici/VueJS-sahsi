@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <H1>FİREBASE</H1>
+    <h2>Firebase</h2>
   </div>
 </template>
 
@@ -10,47 +10,48 @@ import {
   getFirestore,
   collection,
   getDocs,
-  doc,
-  get,
   addDoc,
   deleteDoc,
+  updateDoc,
+  doc,
   query,
   where,
   onSnapshot,
 } from "firebase/firestore/lite";
-
 import { fb } from "../firebase/config";
+
 export default {
   name: "HomeView",
   components: {},
   setup() {
     onMounted(async () => {
-      const db = getFirestore(fb);
+      const db = getFirestore();
       const fbRef = collection(db, "books");
       const fbDocs = await getDocs(fbRef);
       const data = fbDocs.docs.map((doc) => doc.data());
       const docID = fbDocs.docs.map((doc) => doc.id);
-
       // console.log(docID);
       // console.log(data);
-      // yeni belge ekle
       // addDoc(fbRef, {
-      //   name: "sokratesin savunmasi",
-      //   author: "platon",
+      //   name: "Sokrates'in Savunması",
+      //   author: "Platon",
       //   pageCount: 200,
       // });
-      //? belge silme
-      //   const docRef = doc(db, "books", "YFp9Shn4KZCyCIav4YLQ");
-      //   deleteDoc(docRef);
-
+      // const docRef = doc(db, "books", "LTJsAbsdvF7GsLYJQYcw");
+      // deleteDoc(docRef);
       const q = query(fbRef, where("pageCount", "==", 200));
       onSnapshot(q, (ss) => {
         let books = [];
         ss.docs.forEach((doc) => {
           books.push({ ...doc.data(), id: doc.id });
         });
+        console.log(books);
       });
-      console.log();
+
+      // const docRef = doc(db, "books", "m471oqfKktrRFpRjaWgI");
+      // updateDoc(docRef, {
+      //   pageCount: 400,
+      // });
       return data;
     });
   },
