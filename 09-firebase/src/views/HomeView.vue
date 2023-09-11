@@ -48,10 +48,10 @@ export default {
         console.log(books);
       });
 
-      // const docRef = doc(db, "books", "m471oqfKktrRFpRjaWgI");
-      // updateDoc(docRef, {
-      //   pageCount: 400,
-      // });
+      const docRef = doc(db, "books", "OwR5UsIFwCPy8o7yCynB");
+      updateDoc(docRef, {
+        pageCount: 450,
+      });
       return data;
     });
   },
