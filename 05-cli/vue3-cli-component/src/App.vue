@@ -1,5 +1,8 @@
 <template>
-  <Title />
+  <div>
+    <Title />
+    <h3>app vue başlik</h3>
+  </div>
 </template>
 
 <script>

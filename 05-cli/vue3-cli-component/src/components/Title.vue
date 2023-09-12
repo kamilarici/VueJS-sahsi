@@ -7,11 +7,15 @@
 <script>
 export default {
   data() {
-    return {
-      title: "VUE 3 e giriş",
-    };
+    return {};
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+h3 {
+  color: red;
+  font-size: 30px;
+  font-weight: 700;
+}
+</style>
