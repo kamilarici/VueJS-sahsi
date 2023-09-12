@@ -1,9 +1,28 @@
-<template></template>
+<template>
+  <div>
+    <h3>{{ title }}</h3>
+    <input type="text" ref="name" />
+    <input type="text" ref="password" />
+    <button @click="login">Giriş</button>
+    <br />
+    <p>{{ isLogin }}</p>
+  </div>
+</template>
 
 <script>
 export default {
   name: "App",
-  components: {},
+  data() {
+    return {
+      title: "login",
+      name: "varol",
+      pasword: "1234",
+      isLogin: false,
+    };
+  },
+  methods: {
+    login() {},
+  },
 };
 </script>
 
