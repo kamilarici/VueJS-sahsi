@@ -17,7 +17,7 @@
     <br />
     <div>
       <input type="checkbox" id="vue" value="vue" v-model="frameworks" />
-      <label for="vue">onay</label>
+      <label for="vue">vue</label>
     </div>
     <div>
       <input type="checkbox" id="react" value="react" v-model="frameworks" />
@@ -29,6 +29,12 @@
     </div>
     <br />
     <p>seçilen frameworkler: {{ frameworks }}</p>
+    <hr />
+    <h3>öğrenciler</h3>
+    <input type="text" v-model="student" @keyup="addStudent" />
+    <div v-for="student in students" :key="student">
+      <span @click="deleteStudent(student)">{{ student }}</span>
+    </div>
   </form>
 </template>
 
@@ -40,7 +46,22 @@ export default {
       framework: "Framework Seçin",
       checked: false,
       frameworks: [],
+      student: "",
+      students: [],
     };
+  },
+  methods: {
+    addStudent(e) {
+      if (e.key == "," && this.student) {
+        if (!this.students.includes(this.student)) {
+          this.students.push(this.student);
+        }
+        this.student = "";
+      }
+    },
+    deleteStudent(student) {
+      this.students = this.students.filter((item) => student !== item);
+    },
   },
 };
 </script>
