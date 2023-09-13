@@ -4,15 +4,18 @@
     <!--? props istediğimiz şekilde yollarız isim olarak data da da aynı şekilde tanımlamamız yeterli -->
     <Title :titleText="text" :text="text2" />
     <h3>app vue başlik</h3>
+    <Button />
   </div>
 </template>
 
 <script>
 import Title from "./components/Title.vue";
+import Button from "./components/Button.vue";
 export default {
   name: "App",
   components: {
     Title,
+    Button,
   },
   data() {
     return {

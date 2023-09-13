@@ -12,7 +12,7 @@ export default {
   //    emit yukarı veri yollamak için kullanılır
   methods: {
     clean() {
-      this.$emit;
+      this.$emit("clean");
     },
   },
 };
