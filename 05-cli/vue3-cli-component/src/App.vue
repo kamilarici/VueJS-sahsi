@@ -4,7 +4,8 @@
     <!--? props istediğimiz şekilde yollarız isim olarak data da da aynı şekilde tanımlamamız yeterli -->
     <Title :titleText="text" :text="text2" />
     <h3>app vue başlik</h3>
-    <Button />
+    <Button @clean="cleanInput" />
+    <input type="text" ref="inputText" />
   </div>
 </template>
 
@@ -22,6 +23,11 @@ export default {
       text: "vue 3'e giriş",
       text2: "vue ya hoş geldiniz",
     };
+  },
+  methods: {
+    cleanInput() {
+      this.$refs.inputText.value = "";
+    },
   },
 };
 </script>
