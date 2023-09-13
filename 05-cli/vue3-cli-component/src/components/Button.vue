@@ -1,4 +1,5 @@
 <template>
+  <!-- <div @click.shift="clean"> -->
   <div @click="clean">
     <h3>temizle</h3>
   </div>
