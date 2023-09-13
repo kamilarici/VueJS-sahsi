@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="sendData">
     <input type="text" v-model="text" />
     <p>{{ text }}</p>
 
@@ -35,6 +35,8 @@
     <div v-for="student in students" :key="student">
       <span @click="deleteStudent(student)">{{ student }}</span>
     </div>
+    <br />
+    <button @click.prevent="sendData">Gönder</button>
   </form>
 </template>
 
@@ -61,6 +63,9 @@ export default {
     },
     deleteStudent(student) {
       this.students = this.students.filter((item) => student !== item);
+    },
+    sendData() {
+      console.log("veriler gönderildi");
     },
   },
 };
