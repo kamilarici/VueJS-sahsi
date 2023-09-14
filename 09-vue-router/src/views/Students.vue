@@ -3,8 +3,8 @@
     <h1>ogrenciler</h1>
     <div v-for="student in students" :key="student.id">
       <router-link :to="{ path: `/students/${student.id}` }">
-        {{ student.name }}</router-link
-      >
+        {{ student.name }}
+      </router-link>
     </div>
   </div>
 </template>
