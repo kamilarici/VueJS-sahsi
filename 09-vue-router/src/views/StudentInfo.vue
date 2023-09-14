@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Ögrenci Bilgi Sayfasi</h3>
-    <p>Ögrenci ID: {{}}</p>
+    <p>Ögrenci ID: {{ $route }}</p>
   </div>
 </template>
 
