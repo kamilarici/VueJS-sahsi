@@ -27,6 +27,7 @@ const routes = [
     name: "studentInfo",
 
     component: () => import("../views/StudentInfo.vue"),
+    props: true,
   },
 ];
 
