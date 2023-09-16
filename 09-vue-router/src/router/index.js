@@ -29,6 +29,11 @@ const routes = [
     component: () => import("../views/StudentInfo.vue"),
     props: true,
   },
+  {
+    // ? path yanlış girilirse de yani s takısı olmaz ise de doğru path a yolla demek için yazıyoruz.
+    path: "/student",
+    redirect: "/students",
+  },
 ];
 
 const router = createRouter({
