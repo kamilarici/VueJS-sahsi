@@ -1,10 +1,21 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <!-- <Header content="bu bir deneme başligi"></Header> -->
+    <Header>
+      <h1>bu bir deneme başliği</h1>
+    </Header>
+  </div>
 </template>
+<script>
+import Header from "./components/Header.vue";
+
+export default {
+  name: "App",
+  components: {
+    Header,
+  },
+};
+</script>
 
 <style>
 #app {
