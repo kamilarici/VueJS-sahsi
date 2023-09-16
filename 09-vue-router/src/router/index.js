@@ -34,6 +34,14 @@ const routes = [
     path: "/student",
     redirect: "/students",
   },
+  {
+    // ? olmayan yada yanlış girilen path lar için oluşturulan hata sayfası için yol
+    path: "/:catchAll(.*)",
+    name: "notFound",
+
+    component: () => import("../views/NotFound.vue"),
+    props: true,
+  },
 ];
 
 const router = createRouter({
