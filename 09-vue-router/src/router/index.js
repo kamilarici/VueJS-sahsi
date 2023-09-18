@@ -39,6 +39,7 @@ const routes = [
     path: "/:catchAll(.*)",
     name: "notFound",
 
+    // lazy loading
     component: () => import("../views/NotFound.vue"),
     props: true,
   },
