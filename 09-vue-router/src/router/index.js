@@ -35,7 +35,7 @@ const routes = [
     redirect: "/students",
   },
   {
-    // ? olmayan yada yanlış girilen path lar için oluşturulan hata sayfası için yol
+    // ? olmayan yada yanlış girilen path lar için oluşturulan hata sayfası için yol ***
     path: "/:catchAll(.*)",
     name: "notFound",
 
