@@ -2,7 +2,8 @@
   <div class="home">
     <div v-if="projects.length">
       <div v-for="project in projects" :key="project.id">
-        <p>{{ project.title }}</p>
+        <h2>{{ project.title }}</h2>
+        <p>{{ project.details }}</p>
       </div>
     </div>
   </div>
