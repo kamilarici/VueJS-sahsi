@@ -7,14 +7,12 @@
 
 <script>
 export default {
-data(){
-    return{
-        rakamlar:[12,158,12574,14,6]
-    }
-}
-}
+  data() {
+    return {
+      rakamlar: [12, 158, 12574, 14, 6, 18, 21],
+    };
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
