@@ -16,7 +16,7 @@ const routes = [
   {
     path: "/projects/:id",
     name: "EditProject",
-
+    // lazy loading ile yükleniyor
     component: () => import("../views/EditProject.vue"),
     props: true,
   },
