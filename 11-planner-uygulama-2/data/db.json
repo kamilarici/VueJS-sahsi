@@ -2,9 +2,9 @@
   "projects": [
     {
       "id": 1,
-      "title": "Deneme 0",
+      "title": "Deneme 1",
       "details": "Lorem Ipsum is simply Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. aaaaaaaaaaaa",
-      "complete": true
+      "complete": false
     },
     {
       "id": 2,
