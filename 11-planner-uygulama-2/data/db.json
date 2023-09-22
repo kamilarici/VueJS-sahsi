@@ -19,22 +19,10 @@
       "complete": true
     },
     {
-      "id": 4,
-      "title": "Deneme 4",
-      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-      "complete": false
-    },
-    {
       "title": "Deneme 5",
       "details": "asfasdf gsdg erhdshs thfsgh",
       "complete": true,
       "id": 5
-    },
-    {
-      "title": "Deneme 7",
-      "details": "fdgdfg dfhfdgh sfdhsh srthsfhg",
-      "complete": false,
-      "id": 6
     }
   ]
 }
