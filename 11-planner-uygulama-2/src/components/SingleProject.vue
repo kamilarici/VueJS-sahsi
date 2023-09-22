@@ -26,9 +26,9 @@ export default {
   },
   methods: {
     deleteProject() {
-      fetch(this.uri, { method: "DELETE" }).then(() =>
-        this.$emit("delete", this.project.id)
-      );
+      fetch(this.uri, { method: "DELETE" })
+        //? burada sildiğimiz elemanlar serverden siliniyor ama projects içinden silinmediği için ekranda göremiyoruz bu sebeble sildiğimiz elemanın id sini parent e yolluyoruz ve orada id ile silinen elemanı ekrandan çıkaracağız
+        .then(() => this.$emit("delete", this.project.id));
     },
   },
 };
