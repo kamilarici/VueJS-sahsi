@@ -15,5 +15,5 @@ const getContentsFetch = () => {
   };
   return { contents, err, getContents };
 };
-
+// ? composablesdeki klasörü başka yerlerde kullanmak için kullanmak istediğimiz fonk değişken yada dataları return ile aşağı yollamamız gerekiyor
 export default getContentsFetch;
