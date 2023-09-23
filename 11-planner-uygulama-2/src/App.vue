@@ -1,13 +1,13 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/add">addproject</router-link>
-  </nav>
+  <Navbar />
   <router-view />
 </template>
 <script>
+import Navbar from "./components/Navbar.vue";
 export default {
-  components: {},
+  components: {
+    Navbar,
+  },
 };
 </script>
 
