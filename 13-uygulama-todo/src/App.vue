@@ -14,6 +14,23 @@
       </div>
       <button type="submit" class="button is-warning">Ekle</button>
     </form>
+    <div v-for="todo in todos" :key="todo.id" class="card my-5 mx-5">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left"></div>
+          <div class="media-content">
+            <p
+              class="title cursor"
+              @click="done(todo)"
+              :class="{ done: todo.done }"
+            >
+              {{ todo.content }}
+            </p>
+            <p>yapıldı:{{ todo.done }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -31,8 +48,11 @@ export default {
       });
       todo.value = "";
     }
+    function done(todo) {
+      todo.done = !todo.done;
+    }
 
-    return { todo, todos };
+    return { todo, todos, addTodo, done };
   },
 };
 </script>
@@ -57,5 +77,11 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+.done {
+  text-decoration: line-through;
+}
+.cursor {
+  cursor: pointer;
 }
 </style>
