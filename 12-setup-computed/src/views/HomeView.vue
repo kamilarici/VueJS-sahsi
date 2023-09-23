@@ -11,9 +11,10 @@
 
 <script>
 import { ref, computed, watch, watchEffect } from "vue";
+
 export default {
   name: "HomeView",
-  components: {},
+
   setup() {
     const days = ref(["pazartesi", "salı", "çarşamba", "perşembe", "cuma"]);
     const search = ref("");
