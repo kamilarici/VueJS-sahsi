@@ -14,10 +14,10 @@ const routes = [
     component: () => import("../views/AddPost.vue"),
   },
   {
-    path: "/projects/:id",
-    name: "EditProject",
+    path: "/posts/:id",
+    name: "Post",
     // lazy loading ile yükleniyor
-    component: () => import("../views/EditProject.vue"),
+    component: () => import("../views/Post.vue"),
     props: true,
   },
 ];

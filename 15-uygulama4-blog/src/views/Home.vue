@@ -1,27 +1,25 @@
 <template>
   <div class="home">
-    <FilterNav @filterChange="current = $event" :current="current"> </FilterNav>
-    <div v-if="post.length">
-      <div v-for="post in posts" :key="post.id">
-        <SinglePost :post="post"> </SinglePost>
-      </div>
+    <div v-for="post in posts" :key="post.id">
+      <SinglePost :post="post"></SinglePost>
     </div>
   </div>
 </template>
 
 <script>
+import { ref } from "vue";
 import SinglePost from "../components/SinglePost.vue";
-
+import getPosts from "../composables/getPosts";
 export default {
   name: "Home",
-  components: {
-    SinglePost,
-  },
-
-  data() {
-    return {
-      posts: [],
-    };
+  components: { SinglePost },
+  setup() {
+    const posts = ref([]);
+    getPosts().then((data) => {
+      posts.value = data;
+    });
+    console.log(posts);
+    return { posts };
   },
 };
 </script>
