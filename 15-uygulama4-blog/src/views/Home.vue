@@ -18,7 +18,7 @@ export default {
     getPosts().then((data) => {
       posts.value = data;
     });
-    console.log(posts);
+
     return { posts };
   },
 };

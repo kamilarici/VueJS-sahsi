@@ -8,9 +8,7 @@
 <script>
 export default {
   props: ["post"],
-  setup(props) {
-    console.log(props.post.title);
-  },
+  setup() {},
 };
 </script>
 <style>

@@ -1,22 +1,44 @@
 <template>
-  <form>
+  <form @submit.prevent="handleSubmit">
     <label>Title:</label>
     <input type="text" v-model="title" required />
     <label>Content:</label>
     <textarea v-model="content" required></textarea>
-    <button>Add Project</button>
+    <button>Add Post</button>
   </form>
 </template>
+
 <script>
+import { ref } from "vue";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { fb } from "../firebase/config";
+import { useRouter } from "vue-router";
+
 export default {
-  data() {
-    return {
-      title: "",
-      details: "",
-    };
+  setup() {
+    const title = ref("");
+    const content = ref("");
+    const id = Date.now();
+    const router = useRouter();
+    function handleSubmit() {
+      const post = {
+        title: title.value,
+        content: content.value,
+        id: id,
+      };
+      const db = getFirestore(fb);
+      const fbRef = collection(db, "posts");
+      addDoc(fbRef, post);
+      router.push({
+        name: "Home",
+      });
+    }
+
+    return { title, content, handleSubmit };
   },
 };
 </script>
+
 <style>
 form {
   background: #fff;
