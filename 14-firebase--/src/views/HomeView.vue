@@ -11,6 +11,9 @@ import {
   collection,
   getDocs,
   get,
+  addDoc,
+  deleteDoc,
+  doc,
 } from "firebase/firestore/lite";
 import { fb } from "../firebase/config";
 export default {
@@ -19,13 +22,18 @@ export default {
   setup() {
     onMounted(async () => {
       const db = getFirestore(fb);
-      const fbDataName = collection(db, "books");
-      const fbDocs = await getDocs(fbDataName);
+      const fbRef = collection(db, "books");
+      const fbDocs = await getDocs(fbRef);
       const data = fbDocs.docs.map((doc) => doc.data());
       const docID = fbDocs.docs.map((doc) => doc.id);
 
-      console.log(docID);
-      console.log(data);
+      // addDoc(fbRef, {
+      //   name: "Sokratesin Savunmasi",
+      //   author: "Platon",
+      //   pageCount: 200,
+      // });
+      const docRef = doc(db, "books", "oOCnhRWDqpN1PuPeZMbd");
+      deleteDoc(docRef);
       return data;
     });
   },
