@@ -56,9 +56,8 @@ export default {
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
-
 }
-.welcome button{
-  margin 20px
+.welcome button {
+  margin: 20px auto;
 }
 </style>
