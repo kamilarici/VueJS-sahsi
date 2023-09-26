@@ -10,7 +10,7 @@ const signup = async (email, password, displayName) => {
       email,
       password
     );
-    if (res.user) {
+    if (!res.ok) {
       throw new Error("could not kkkk complete the signup!");
     }
     console.log(res.user);
