@@ -3,7 +3,7 @@
     <input
       type="text"
       required
-      placeholder="Dispaley Name"
+      placeholder="Display Name"
       v-model="displayName"
     />
     <input type="email" required placeholder="e-mail" v-model="email" />
