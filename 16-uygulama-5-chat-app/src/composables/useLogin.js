@@ -10,8 +10,13 @@ const login = async (email, password) => {
     error.value = null;
     console.log(res);
     return res;
-  } catch (error) {
+  } catch (err) {
     console.log(err.value);
-    err.value = "Incorrect login credentials";
+    error.value = "Incorrect login credentials";
   }
 };
+
+const useLogin = () => {
+  return { error, login };
+};
+export default useLogin;
