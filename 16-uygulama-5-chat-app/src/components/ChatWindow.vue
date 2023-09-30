@@ -13,7 +13,7 @@
 <script>
 import getCollection from "@/composables/getCollection";
 import { formatDistanceToNow } from "date-fns";
-import { computed } from "vue";
+import { computed, ref, onUpdated } from "vue";
 
 export default {
   setup() {
@@ -26,8 +26,12 @@ export default {
         });
       }
     });
-    console.log(documents);
-    return { error, documents, formatedDocuments };
+    const messages = ref(null);
+    onUpdated(() => {
+      messages.value.scrollTop = messages.value.scrollHeight;
+    });
+
+    return { error, documents, formatedDocuments, messages };
   },
 };
 </script>
