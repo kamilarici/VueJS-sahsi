@@ -25,7 +25,7 @@ export default {
       const chat = {
         name: user.value.displayName,
         message: message.value,
-        createdAd: timestamp(),
+        createdAt: timestamp(),
       };
       await addDoc(chat);
       if (!error.value) {
