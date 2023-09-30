@@ -1,3 +1,7 @@
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/auth";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDoBI37wFg3TTholhaAULWn40IjSNtk2k4",
   authDomain: "playlist-vue-btk-d6769.firebaseapp.com",
@@ -6,3 +10,12 @@ const firebaseConfig = {
   messagingSenderId: "144357594614",
   appId: "1:144357594614:web:274b7741ac88cb88b723d7",
 };
+
+firebase.initializeApp(firebaseConfig);
+
+const projectFirestore = firebase.firestore();
+const projectAuth = firebase.auth();
+
+const timestamp = firebase.firestore.FieldValue.serverTimestamp;
+
+export { projectFirestore, projectAuth, timestamp };
