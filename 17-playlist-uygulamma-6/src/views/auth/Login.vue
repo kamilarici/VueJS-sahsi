@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <form @submit.prevent="handleSubmit">
-      <h3>Login</h3>
-      <input type="email" placeholder="email" v-model="email" />
-      <input type="password" placeholder="Password" v-model="password" />
-      <div class="error" v-if="error">{{ error }}</div>
-      <button v-if="!isPengding">Login</button>
-      <button v-if="isPengding">Loading</button>
-    </form>
-  </div>
+  <form @submit.prevent="handleSubmit">
+    <h3>Login</h3>
+    <input type="email" placeholder="email" v-model="email" />
+    <input type="password" placeholder="Password" v-model="password" />
+    <div class="error" v-if="error">{{ error }}</div>
+    <button v-if="!isPengding">Login</button>
+    <button v-if="isPengding">Loading</button>
+  </form>
 </template>
 <script>
 import useLogin from "@/composables/useLogin";
