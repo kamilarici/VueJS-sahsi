@@ -4,13 +4,30 @@
       <img src="@/assets/logo.png" alt="" />
       <h1><router-link :to="{ name: 'home' }">🎶 PlayList</router-link></h1>
       <div class="links">
-        <button>Logout</button>
+        <button @click="handleClick">Logout</button>
         <router-link class="btn" :to="{ name: 'signup' }">Signup</router-link>
         <router-link class="btn" :to="{ name: 'login' }">Login</router-link>
       </div>
     </nav>
   </div>
 </template>
+<script>
+import useLogout from "@/composables/useLogout";
+import { useRouter } from "vue-router";
+export default {
+  setup() {
+    const { logout } = useLogout();
+    const router = useRouter();
+
+    const handleClick = async () => {
+      await logout();
+      console.log("user logged out");
+      router.push({ name: "login" });
+    };
+    return { handleClick };
+  },
+};
+</script>
 <style scoped>
 .navbar {
   padding: 16px 10px;
