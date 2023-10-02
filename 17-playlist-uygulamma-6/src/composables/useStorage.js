@@ -2,7 +2,7 @@ import { ref } from "vue";
 import { projectStorage } from "@/firebase/config";
 import getUser from "./getUser";
 
-const { user } = getuser();
+const { user } = getUser();
 const useStorage = () => {
   const error = ref(null);
   const url = ref(null);
