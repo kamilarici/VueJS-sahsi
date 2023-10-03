@@ -42,7 +42,7 @@ export default {
           description: description.value,
           userId: user.value.uid,
           userName: user.value.displayName,
-          // coverUrl: url.value,
+          coverUrl: url.value,
           filePath: filePath.value,
           songs: [],
           createdAt: timestamp(),

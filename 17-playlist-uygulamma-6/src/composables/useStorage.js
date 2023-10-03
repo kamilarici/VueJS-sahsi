@@ -1,8 +1,9 @@
+import { projectStorage } from "../firebase/config";
 import { ref } from "vue";
-import { projectStorage } from "@/firebase/config";
 import getUser from "./getUser";
 
 const { user } = getUser();
+
 const useStorage = () => {
   const error = ref(null);
   const url = ref(null);
@@ -14,13 +15,14 @@ const useStorage = () => {
 
     try {
       const res = await storageRef.put(file);
-      url.value = res.ref.getDownloadURL();
-    } catch (error) {
+      url.value = await res.ref.getDownloadURL();
+    } catch (err) {
       console.log(err.message);
       error.value = err.message;
     }
   };
-  return { url, filePath, error, uploadImage };
+
+  return { uploadImage, url, filePath, error };
 };
 
 export default useStorage;
