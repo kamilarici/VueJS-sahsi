@@ -33,6 +33,13 @@ const routes = [
     component: () => import("../views/playlists/CreatePlayList.vue"),
     beforeEnter: requireAuth,
   },
+  {
+    path: "/playlist/:id",
+    name: "playlistdetails",
+    component: () => import("../views/playlists/PlaylistDetails.vue"),
+    beforeEnter: requireAuth,
+    props: true,
+  },
 ];
 
 const router = createRouter({
