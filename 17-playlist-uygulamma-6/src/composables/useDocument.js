@@ -9,6 +9,19 @@ const useDocument = (collection, id) => {
 
   const deleteDoc = async () => {
     isPending.value = true;
-    error.value;
+    error.value = null;
+
+    try {
+      const res = await docRef.delete();
+      isPending.value = false;
+      return res;
+    } catch (error) {
+      console.log(err.message);
+      isPending.value = false;
+      error.value = "could not the document";
+    }
+    return { error, isPending, deleteDoc };
   };
 };
+
+export default deleteDoc;

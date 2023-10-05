@@ -18,6 +18,7 @@
   </div>
 </template>
 <script>
+import useDocument from "@/composables/useDocument";
 import getDocument from "@/composables/getDocument";
 import getUser from "@/composables/getUser";
 import { computed } from "vue";
@@ -27,6 +28,7 @@ export default {
   setup(props) {
     const { error, document: playlist } = getDocument("playlists", props.id);
     const { user } = getUser();
+    const { deleteDoc } = useDocument("playlist", props.id);
 
     const ownership = computed(() => {
       return (
