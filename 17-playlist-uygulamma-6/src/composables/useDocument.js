@@ -24,4 +24,4 @@ const useDocument = (collection, id) => {
   };
 };
 
-export default deleteDoc;
+export default useDocument;
