@@ -23,6 +23,7 @@ import useDocument from "../../composables/useDocument";
 import getDocument from "@/composables/getDocument";
 import getUser from "@/composables/getUser";
 import { computed } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   props: ["id"],
@@ -31,7 +32,7 @@ export default {
     const { user } = getUser();
     const { deleteDoc } = useDocument("playlists", props.id);
     const { deleteImage } = useStorage();
-
+    const router = useRouter();
     const ownership = computed(() => {
       return (
         playlist.value && user.value && user.value.uid === playlist.value.userId
@@ -41,7 +42,7 @@ export default {
     const handleDelete = async () => {
       await deleteImage(playlist.value.filePath);
       await deleteDoc();
-      console.log(error);
+      router.push({ name: home });
     };
     return { error, playlist, ownership, handleDelete };
   },

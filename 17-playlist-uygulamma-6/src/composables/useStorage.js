@@ -32,7 +32,7 @@ const useStorage = () => {
     }
   };
 
-  return { uploadImage, url, filePath, error };
+  return { uploadImage, url, filePath, error, deleteImage };
 };
 
 export default useStorage;
