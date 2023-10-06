@@ -18,6 +18,7 @@
   </div>
 </template>
 <script>
+import useStorage from "../../composables/useStorage";
 import useDocument from "../../composables/useDocument";
 import getDocument from "@/composables/getDocument";
 import getUser from "@/composables/getUser";
@@ -29,6 +30,7 @@ export default {
     const { error, document: playlist } = getDocument("playlists", props.id);
     const { user } = getUser();
     const { deleteDoc } = useDocument("playlists", props.id);
+    const { deleteImage } = useStorage();
 
     const ownership = computed(() => {
       return (
@@ -37,7 +39,9 @@ export default {
     });
 
     const handleDelete = async () => {
+      await deleteImage(playlist.value.filePath);
       await deleteDoc();
+      console.log(error);
     };
     return { error, playlist, ownership, handleDelete };
   },
