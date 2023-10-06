@@ -42,7 +42,7 @@ export default {
     const handleDelete = async () => {
       await deleteImage(playlist.value.filePath);
       await deleteDoc();
-      router.push({ name: home });
+      router.push({ name: "home" });
     };
     return { error, playlist, ownership, handleDelete };
   },
