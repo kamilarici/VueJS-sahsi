@@ -13,6 +13,7 @@
       </div>
       <div class="song-list">
         <p>song list</p>
+        <AddSong />
       </div>
     </div>
   </div>
@@ -24,9 +25,11 @@ import getDocument from "@/composables/getDocument";
 import getUser from "@/composables/getUser";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
+import AddSong from "@/components/AddSong.vue";
 
 export default {
   props: ["id"],
+  components: { AddSong },
   setup(props) {
     const { error, document: playlist } = getDocument("playlists", props.id);
     const { user } = getUser();
@@ -38,7 +41,6 @@ export default {
         playlist.value && user.value && user.value.uid === playlist.value.userId
       );
     });
-
     const handleDelete = async () => {
       await deleteImage(playlist.value.filePath);
       await deleteDoc();
