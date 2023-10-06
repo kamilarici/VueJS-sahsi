@@ -36,7 +36,7 @@ export default {
       );
     });
 
-    handleDelete = async () => {
+    const handleDelete = async () => {
       await deleteDoc();
     };
     return { error, playlist, ownership, handleDelete };
