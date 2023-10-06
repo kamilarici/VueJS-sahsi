@@ -13,7 +13,7 @@
       </div>
       <div class="song-list">
         <p>song list</p>
-        <AddSong />
+        <AddSong v-if="ownership" :playlist="playlist" />
       </div>
     </div>
   </div>
