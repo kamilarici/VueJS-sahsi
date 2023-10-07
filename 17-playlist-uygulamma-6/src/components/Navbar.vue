@@ -7,6 +7,7 @@
       <h1><router-link :to="{ name: 'home' }"> PlayList</router-link></h1>
       <div class="links">
         <div v-if="user">
+          <span>Hi, {{ user.displayName }}</span>
           <router-link class="btn" :to="{ name: 'createplaylist' }"
             >Create Playlist
           </router-link>
@@ -66,5 +67,12 @@ button {
 }
 nav img {
   max-height: 60px;
+}
+span {
+  font-size: 14px;
+  display: inline-block;
+  margin-right: 16px;
+  padding-right: 16px;
+  border-right: 1px solid #ccc;
 }
 </style>
