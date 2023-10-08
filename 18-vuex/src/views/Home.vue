@@ -1,19 +1,34 @@
 <template>
-  <div class="home">home</div>
+  <div class="home">
+    <List />
+    <!-- <List :todos="todos" /> -->
+    <AddTodo />
+  </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import List from "@/components/List.vue";
+import { ref, onUpdated } from "vue";
+import AddTodo from "@/components/AddTodo.vue";
+import { useRoute } from "vue-router";
+
 export default {
-  name: home,
-  components: {},
+  components: { AddTodo, List },
   setup() {
-    const todos = ref([
-      { id: 1, todo: "ders çaliş" },
-      { id: 2, todo: "film izle" },
-      { id: 3, todo: "kitap oku" },
-    ]);
-    return { todos };
+    // const todos = ref([
+    //   { id: 1, todo: "ders çaliş" },
+    //   { id: 2, todo: "film izle" },
+    //   { id: 3, todo: "kitap oku" },
+    // ]);
+    // const route = useRoute();
+    // onUpdated(() => {
+    //   console.log(route.query.data);
+    //   todos.value.push({
+    //     id: Math.floor(Math.random() * 10000000),
+    //     todo: route.query.data,
+    //   });
+    // });
+    // return { todos };
   },
 };
 </script>
