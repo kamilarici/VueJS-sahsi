@@ -3,17 +3,19 @@
     <List />
     <!-- <List :todos="todos" /> -->
     <AddTodo />
+    <todoCount />
   </div>
 </template>
 
 <script>
 import List from "@/components/List.vue";
+import todoCount from "@/components/todoCount.vue";
 import { ref, onUpdated } from "vue";
 import AddTodo from "@/components/AddTodo.vue";
 import { useRoute } from "vue-router";
 
 export default {
-  components: { AddTodo, List },
+  components: { AddTodo, List, todoCount },
   setup() {
     // const todos = ref([
     //   { id: 1, todo: "ders çaliş" },

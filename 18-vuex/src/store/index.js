@@ -17,7 +17,7 @@ export default createStore({
       return state.todos.filter((x) => x.done == true).length;
     },
     todoNotCount(state) {
-      return state.todos.filter((x) => x.done == false);
+      return state.todos.filter((x) => x.done == false).length;
     },
   },
   mutations: {
