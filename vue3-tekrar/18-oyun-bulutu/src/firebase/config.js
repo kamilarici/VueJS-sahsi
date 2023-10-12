@@ -16,8 +16,8 @@ const firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig)
 
+  const authRef=firebase.auth()
 
   const firestoreRef=firebase.firestore();
 
-  const authRef=firebase.auth()
   export {firestoreRef,authRef}
