@@ -9,14 +9,21 @@
  </template>
  
  <script>
- 
+ import girisYap from  '../composables/girisYap'
+ import { useRouter } from 'vue-router';
+
  
  
  export default {
    name: 'Home',
-   components: {
-  
-   }
+setup(){
+  const {login}=girisYap()
+  const useRouter=useRouter()
+  const handleGiris=async()=>{
+    await login()
+    router.push({name:'Ekle'})
+  }
+}
  }
  </script>
  <style scoped>

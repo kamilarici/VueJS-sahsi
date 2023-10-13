@@ -13,6 +13,11 @@ const routes = [
     name: 'Hakkimizda',
     component: Hakkimizda
   },
+  {
+    path: '/ekle',
+    name: 'Ekle',
+    component: Ekle
+  },
  
 ]
 
