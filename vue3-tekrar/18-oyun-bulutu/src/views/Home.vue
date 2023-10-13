@@ -16,7 +16,7 @@ export default {
   name: "Home",
   setup() {
     const { login } = girisYap();
-    const useRouter = useRouter();
+    const router = useRouter();
     const handleGiris = async () => {
       await login();
       router.push({ name: "Ekle" });
