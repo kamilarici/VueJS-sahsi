@@ -1,12 +1,26 @@
 <template>
- <div class="nav">
+  <div v-if="kullanici">
+    <router-link :to="{name:'Ekle'}">Oyun Ekle | </router-link>
+  <router-link :to="{name:'Oyunlar'}">Oyunlar</router-link>
+  </div>
+ <div v-else class="nav">
   <router-link :to="{name:'Home'}">Anasayfa | </router-link>
   <router-link :to="{name:'Hakkimizda'}">Hakkımızda</router-link>
 
  </div>
   <router-view/>
 </template>
+<script>
+import kullaniciGetir from  './composables/KullaniciGetir';
+export default{
 
+  setup(){
+    const {kullanici}=kullaniciGetir()
+    return {kullanici}
+    
+  }
+}
+</script>
 <style>
 body{
   font-family:sans-serif;
