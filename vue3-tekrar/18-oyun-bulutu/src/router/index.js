@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Hakkimizda from '../views/Hakkimizda.vue'
+import Ekle from '../views/Ekle.vue'
 
 const routes = [
   {
