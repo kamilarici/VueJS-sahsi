@@ -10,7 +10,15 @@ const login=async()=>{
     try {
        const res=await authRef.signInAnonymously() 
        error.value=null
+        return res
     } catch(error){
-        
+        console.log(error.message)
+        error.value='giriş yapilamadi'
     }
 }
+
+
+const girisYap=()=>{
+    return {error,login}
+}
+export default girisYap
