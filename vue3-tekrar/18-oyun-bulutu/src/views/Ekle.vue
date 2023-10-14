@@ -6,15 +6,19 @@
     <li v-for="oyun in oyunlar" :key="oyun.id" @click="oyunSil(oyun.id)">{{ oyun.oyunAd }}</li>
 </ul>
 </div>
+<Modal v-if="modalGoster" />
 </template>
 <script>
 import {ref,computed} from 'vue'
 import { useStore } from 'vuex';
+import Modal from '../components/Modal.vue'
 
 export default{
+    components:{Modal},
 setup(){
     const store=useStore()
     const yeniOyun=ref('')
+    const modalGoster=ref(false)
 
 
     const oyunlar =computed(()=>{
@@ -26,13 +30,17 @@ setup(){
             yeniOyun.value=''
 
         }else{
-
+triggerModal()
         }
+    }
+    const triggerModal=()=>{
+        modalGoster.value=true
+        setTimeout(()=>modalGoster.value=false,3000)
     }
     const oyunSil=(id)=>{
         store.dispatch('oyunSilAction',id)
     }
-    return {oyunlar,yeniOyun,oyunEkle,oyunSil}
+    return {oyunlar,yeniOyun,oyunEkle,oyunSil,modalGoster}
 }
 }
 </script>
