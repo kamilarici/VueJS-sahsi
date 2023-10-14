@@ -2,6 +2,7 @@
   <div v-if="kullanici">
     <router-link :to="{name:'Ekle'}">Oyun Ekle | </router-link>
   <router-link :to="{name:'Oyunlar'}">Oyunlar</router-link>
+  <button @click="handleCikis">Cikis Yap</button>
   </div>
  <div v-else class="nav">
   <router-link :to="{name:'Home'}">Anasayfa | </router-link>
@@ -12,11 +13,23 @@
 </template>
 <script>
 import kullaniciGetir from  './composables/KullaniciGetir';
+import cikisYap from './composables/cikisYap'
+import { useRouter } from 'vue-router';
 export default{
 
   setup(){
     const {kullanici}=kullaniciGetir()
-    return {kullanici}
+    const {logout}=cikisYap()
+
+    const router=useRouter()
+    
+
+
+    const handleCikis= async()=>{
+      await logout();
+      router.push('/')
+    }
+    return {kullanici,logout,handleCikis}
     
   }
 }
