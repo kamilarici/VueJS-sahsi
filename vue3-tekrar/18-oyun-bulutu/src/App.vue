@@ -27,7 +27,7 @@ export default{
 
     const handleCikis= async()=>{
       await logout();
-      router.push('/')
+      router.push("/")
     }
     return {kullanici,logout,handleCikis}
     

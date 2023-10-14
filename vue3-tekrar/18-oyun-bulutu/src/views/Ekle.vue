@@ -3,10 +3,15 @@
     <input type="text" v-model="yeniOyun" placeholder="Yeni Oyun Adı"
     @keypress.enter="oyunEkle">
 <ul>
-    <li v-for="oyun in oyunlar" :key="oyun.id" @click="oyunSil(oyun.id)">{{ oyun.oyunAd }}</li>
+    <transition-group tag="ul" name="list"  appear>
+        <li v-for="oyun in oyunlar" :key="oyun.id" @click="oyunSil(oyun.id)">{{ oyun.oyunAd }}</li>
+    </transition-group>
 </ul>
 </div>
-<Modal v-if="modalGoster" />
+<transition name="modal">
+
+    <Modal v-if="modalGoster" />
+</transition>
 </template>
 <script>
 import {ref,computed} from 'vue'
@@ -83,4 +88,71 @@ input{
 .oyunlar li:hover{
     cursor: pointer;
 } 
+
+@keyframes titresim {
+    0%{transform: translateY((-100px));opacity: 0;}
+    50%{transform: translateY((0px));opacity: 1;}
+    60% {transform: translateX(8px);opacity: 1;}
+    70% {transform: translateX(-8px);opacity: 1;}
+    80% {transform: translateX(4px);opacity: 1;}
+    90% {transform: translateX(-4px);opacity: 1;}
+    100% {transform: translateX(0px);opacity: 1;}
+}
+
+.modal-enter-from{
+    opacity: 0;
+    transform: translateY(-60px);
+
+}
+.modal-enter-to{
+    opacity: 1;
+    transform: translateY(0);
+}
+.modal-enter-active{
+ animation: titresim 0.5s ease;
+
+}
+.modal-leave-from{
+    opacity: 1;
+    transform: translateY(0px);
+
+}
+.modal-leave-to{
+    opacity: 0;
+    transform: translateY(-60px);
+}
+.modal-leave-active{
+    transition: all 0.5s ease;
+    
+}
+
+
+
+.list-enter-from{
+    opacity: 0;
+    transform: scale(0.6);
+    
+}
+.list-enter-to{
+    opacity: 1;
+    transform: scale(1);
+
+}
+.list-enter-active{
+   transition: all 0.4s ease ;
+   
+
+}
+.list-leave-to{
+    opacity: 0;
+    transform: scale(0.6);
+}
+.list-leave-active{
+    transition: all 0.4s ease ;
+    position: absolute;
+}
+.list-move{
+    transition: all 0.3s ease;
+}
+
 </style>

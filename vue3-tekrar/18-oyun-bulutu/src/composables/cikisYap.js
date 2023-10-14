@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { auth } from "@/firebase/config"; // Firebase Authentication'ı temsil ettiğini varsaydım, gerekirse ismi değiştirin
+import {  auth } from "@/firebase/config"; // Firebase Authentication'ı temsil ettiğini varsaydım, gerekirse ismi değiştirin
 
 const error = ref(null);
 
