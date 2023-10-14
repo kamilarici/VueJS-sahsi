@@ -1,15 +1,20 @@
 <template>
   <div class="home">
     <div>
-    <transition name="fade">
+    <!-- <transition name="fade">
       <div  v-if="showMerhaba" >
         merhaba transition
       </div>
     </transition>
-    <button @click="showMerhaba=!showMerhaba">goster/gizle</button>
+    <button @click="showMerhaba=!showMerhaba">goster/gizle</button> -->
       <h1>AOS oyun bulutu</h1>
-      <p>Buluta oyun eklemek ve oyun görmek için giriş yapınız</p>
-      <button @click="handleGiris">Misafir Girişi</button>
+      <transition appear @before-enter="beforeEnter" @enter="enter">
+      <div >
+        <p>Buluta oyun eklemek ve oyun görmek için giriş yapınız</p>
+        <button @click="handleGiris">Misafir Girişi</button>
+
+      </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -18,6 +23,7 @@
 import { ref } from "vue";
 import girisYap from "../composables/girisYap";
 import { useRouter } from "vue-router";
+import gsap from 'gsap'
 
 export default {
   name: "Home",
@@ -30,7 +36,22 @@ export default {
       router.push({ name: "Ekle" });
     };
 
-    return { handleGiris,showMerhaba };
+
+    const beforeEnter=(el)=>{
+      el.style.transform='translateY(200px)'
+      el.style.opacity=0
+
+    }
+    const enter=(el,done)=>{
+      gsap.to(el,{
+        duration:2,
+        y:0,
+        opacity:1,
+        ease:'back',
+        onComplete:done
+      })
+    }
+    return { handleGiris,showMerhaba,beforeEnter,enter };
   },
 };
 </script>

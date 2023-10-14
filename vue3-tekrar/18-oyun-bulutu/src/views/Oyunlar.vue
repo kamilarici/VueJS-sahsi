@@ -2,10 +2,12 @@
   <div class="oyun-liste">
     <h1>Oyun Listesi</h1>
     <ul>
-        <li v-for="oyun in oyunlar" :key="oyun.id">
-        <span class="material-icon md-48"> videogame_asset</span>
+        <transition-group @before-enter="beforeEnter" @enter="enter" appear  >
+            <li v-for="(oyun,index) in oyunlar" :key="oyun.id" :data-index="index">
+        <span class="material-icons md-48"> videogame_asset</span>
         <div>{{ oyun.oyunAd }}</div>
         </li>
+        </transition-group>
     </ul>
   </div>
 </template>
@@ -13,13 +15,29 @@
 <script>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+import gsap  from 'gsap'
+
 export default {
 setup(){
     const store=useStore()
     const oyunlar=computed(()=>{
         return store.state.oyunlar;
     })
-    return {oyunlar}
+
+    const beforeEnter=(el)=>{
+        el.style.opacity=0
+        el.style.transform='translateY(100px)'
+    }
+    const enter=(el)=>{
+        gsap.to(el,{
+            opacity:1,
+            y:0,
+            duration:0.8,
+            delay:el.dataset.index*0.2
+
+        })
+    }
+    return {oyunlar,enter,beforeEnter}
 }
 }
 </script>
