@@ -22,4 +22,4 @@ const cikisYap = () => {
 export default cikisYap;
 
 
-burada düzenleme yapılacak çıkarken sorun yaşıyoruz
+// burada düzenleme yapılacak çıkarken sorun yaşıyoruz
