@@ -1,0 +1,7 @@
+/* //? global css tanımlamasının kullanılması için main.vue componentine import edilmesi yeterlidir  */
+
+
+h1{
+    color: purple;
+    font-size: 40px;
+  }
