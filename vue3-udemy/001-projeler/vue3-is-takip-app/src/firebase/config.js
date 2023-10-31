@@ -3,6 +3,7 @@ import 'firebase/auth'
 
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyDrn_wYnupiGyk4ignIB_L4S6sfVxzm9gE",
     authDomain: "aos-sosyal-app-dbc85.firebaseapp.com",
@@ -16,3 +17,8 @@ const firebaseConfig = {
 
   const firestoreRef=firebase.firestore()
   const authRef=firebase.auth()
+
+
+  const tarih=firebase.firestore.FieldValue.serverTimestamp()
+
+  export {firestoreRef,authRef,tarih}
