@@ -1,9 +1,25 @@
 <template>
- <div class="content">
+<div>
 
-   <router-view/>
- </div>
+  <Navbar/>
+  <div class="content">
+    
+    <router-view/>
+  </div>
+</div>
+
 </template>
+
+<script>
+import Navbar from './components/Navbar.vue';
+
+export default {
+  components:{ Navbar},
+  setup() {
+    
+  },
+}
+</script>
 
 <style>
 .content{
