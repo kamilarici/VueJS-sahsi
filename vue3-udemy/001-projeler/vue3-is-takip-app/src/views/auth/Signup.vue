@@ -10,20 +10,21 @@
   </template>
   
   <script>
-  import useLogin from '@/composables/useLogin'
+  import useSignup from '@/composables/useSignup'
   import {ref} from 'vue'
   export default {
   setup() {
-      const {hata,login}=useLogin();
+      const {hata,signup}=useSignup();
       const email=ref('')
       const parola=ref('')
+      const kullaniciAd=ref('')
       const handleSubmit=async()=>{
-          const res=await login(email.value, parola.value)
+          const res=await signup(email.value, parola.value,kullaniciAd.value)
           if(!hata.value){
-              console.log('kullanici giriş yapti')
+              console.log('kullanici üye oldu')
           }
       }
-      return {email,parola,handleSubmit,hata}
+      return {email,parola,handleSubmit,hata,kullaniciAd}
   }
   }
   </script>
