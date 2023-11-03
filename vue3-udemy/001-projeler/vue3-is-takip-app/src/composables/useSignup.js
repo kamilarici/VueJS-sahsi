@@ -10,7 +10,7 @@ const signup=async(email,parola,kullaniciAd)=>{
     try {
         const res=await authRef.createUserWithEmailAndPassword(email,parola)
         if(!res){
-            throw new error('Üye Olma  İşlemi Gerçekleşmedi')
+            throw new error('Üye Olma  İşlemi Gerçekleşemedi')
         }
         await res.user.updateProfile({
             displayName:kullaniciAd
