@@ -46,7 +46,7 @@ export default {
               await belgeEkle({
                 baslik:baslik.value,
                 aciklama:aciklama.value,
-                kullaniciId:kullanici.value.id,
+                kullaniciId:kullanici.value.uid,
                 kullaniciAd:kullanici.value.displayName,
                 resimUrl:url.value,
                 fileYol:fileYol.value,

@@ -19,6 +19,6 @@ const firestoreRef = firebase.firestore();
 const authRef = firebase.auth();
 const storageRef = firebase.storage();
 
-const tarih = firebase.firestore.FieldValue.serverTimestamp();
+const tarih = firebase.firestore.FieldValue.serverTimestamp;
 
 export { firestoreRef, authRef, tarih,storageRef };
