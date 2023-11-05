@@ -1,8 +1,11 @@
 <template>
-  <div class="navbar">
-    <nav>
-      <img src="@/assets/logo.png" alt="" />
-      <h1><router-link :to="{ name: 'Home' }">AOS İs Takip</router-link></h1>
+  <div class="navbar" style="border-bottom: 2px solid blue; margin-bottom: 25px; background-color: rgb(121, 121, 143);">
+    <nav style="display: flex; justify-content: space-between; align-items: center; ">
+      <div style="display: flex;">
+
+        <img width="50"  src="@/assets/logo.png" alt="" />
+        <h1 ><router-link style="text-decoration: none; color: white;" :to="{ name: 'Home' }">AOS İs Takip</router-link></h1>
+      </div>
       <div class="links">
 
       <div v-if="kullanici">  <button @click="handleClick">Çikis</button></div>

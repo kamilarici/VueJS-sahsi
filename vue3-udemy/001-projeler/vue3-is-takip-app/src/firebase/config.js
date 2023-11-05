@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore'; // Firestore'ü içe aktardığınızdan emin olun
+import 'firebase/storage'; 
 
 const firebaseConfig = {
   apiKey: "AIzaSyAcr3SFAVlFL6QQS7VraqHMJOagxLE3KFs",
@@ -16,7 +17,8 @@ firebase.initializeApp(firebaseConfig);
 
 const firestoreRef = firebase.firestore();
 const authRef = firebase.auth();
+const storageRef = firebase.storage();
 
 const tarih = firebase.firestore.FieldValue.serverTimestamp();
 
-export { firestoreRef, authRef, tarih };
+export { firestoreRef, authRef, tarih,storageRef };

@@ -1,14 +1,14 @@
 <template>
   <div>
-    <form @submit.prevent="handleSubmit">
+    <form @submit.prevent="handleSubmit" style="display: flex; flex-direction: column; border: 1px solid red; padding: 10px; gap: 15px; width: 80%;height: auto; background-color: rgb(63, 114, 180); border-radius: 8px;">
         <h4>İş Oluştur</h4>
-        <input type="text" placeholder="İş Başlik" v-model="baslik">
-        <textarea  placeholder="İş Açiklama" v-model="aciklama"></textarea>
+        <input style="padding: 5px;" type="text" placeholder="İş Başlik" v-model="baslik">
+        <textarea style="padding: 5px;"  placeholder="İş Açiklama" v-model="aciklama"></textarea>
         <label for="">İş Tanitici Resim</label>
-        <input type="file" @change="handleChange">
+        <input style="padding: 8px;" type="file" @change="handleChange">
         <input type="datetime-local" v-model="basTarih">
         <div class="error">{{ fileHata }}</div>
-        <button>İş Oluştur</button>
+        <button >İş Oluştur</button>
 
     </form>
   </div>
