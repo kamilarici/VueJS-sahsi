@@ -16,6 +16,8 @@
 
 <script>
 import { ref } from 'vue';
+import useStorage from '../../composables/useStorage';
+
 export default {
     setup(){
         const baslik=ref('')
@@ -24,11 +26,19 @@ export default {
         const file=ref(null)
         const fileHata=ref(null)
 
+        const {resimYukle,url,fileYol,hata}=useStorage()
+
       const  gecerliTipler=['image/png','image/jpeg']
 
 
-        const handleSubmit=()=>{
-            console.log(baslik.value,aciklama.value,basTarih.value)
+        const handleSubmit=async()=>{
+            //console.log(baslik.value,aciklama.value,basTarih.value)
+            if(file.value){
+              await resimYukle(file.value)
+              console.log('resim yüklendi,url:',url)
+            }
+
+
         }
 
         const handleChange=(e)=>{
