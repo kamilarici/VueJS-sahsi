@@ -6,11 +6,12 @@
         <img width="50"  src="@/assets/logo.png" alt="" />
         <h1 ><router-link style="text-decoration: none; color: white;" :to="{ name: 'Home' }">AOS İs Takip</router-link></h1>
       </div>
-      <div class="links">
+      <div class="links" style="display: flex; gap:15px;">
 
-      <div v-if="kullanici">  <button @click="handleClick">Çikis</button></div>
+      <div  style="color: white;" v-if="kullanici">  <button @click="handleClick">Çikis</button></div>
        <div v-if="!kullanici"> <router-link class="btn" :to="{ name: 'Signup' }">Üye Ol</router-link>
-        <router-link class="btn" :to="{ name: 'Login' }">Giris</router-link></div>
+        <router-link class="btn" :to="{ name: 'Login' }">Giris</router-link>
+      </div>
       </div>
     </nav>
   </div>

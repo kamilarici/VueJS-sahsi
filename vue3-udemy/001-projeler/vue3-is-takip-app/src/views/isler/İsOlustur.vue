@@ -17,6 +17,11 @@
 <script>
 import { ref } from 'vue';
 import useStorage from '../../composables/useStorage';
+import useCollection from '../../composables/useCollection'
+import getUser from '../../composables/getUser'
+import {tarih} from '@/firebase/config'
+
+
 
 export default {
     setup(){
@@ -27,15 +32,35 @@ export default {
         const fileHata=ref(null)
 
         const {resimYukle,url,fileYol,hata}=useStorage()
+        const {hataCollection,belgeEkle}=useCollection('isler')
+        const {kullanici}=getUser() 
 
       const  gecerliTipler=['image/png','image/jpeg']
 
 
         const handleSubmit=async()=>{
-            //console.log(baslik.value,aciklama.value,basTarih.value)
+            // console.log(baslik.value,aciklama.value,basTarih.value)
             if(file.value){
               await resimYukle(file.value)
-              console.log('resim yüklendi,url:',url)
+              // console.log('resim yüklendi,url:',url.value)
+              await belgeEkle({
+                baslik:baslik.value,
+                aciklama:aciklama.value,
+                kullaniciId:kullanici.value.id,
+                kullaniciAd:kullanici.value.displayName,
+                resimUrl:url.value,
+                fileYol:fileYol.value,
+                isAdimlar:[],
+                isTarih:Date.parse(basTarih.value),
+                olusturulmaTarihi:tarih(),
+
+                
+              })
+              if(!hataCollection.value){
+                console.log('is eklendi')
+              }
+
+
             }
 
 
