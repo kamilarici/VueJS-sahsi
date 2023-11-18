@@ -1,7 +1,8 @@
 <template>
     <div>
   <div v-for="is in isler" :key="is.id">
-<div class="single">
+<router-link :to="{name:'İsDetay',params:{id:is.id}}" >
+    <div class="single">
     <div class="thumbnail">
         <img :src="is.resimUrl" alt="">
     </div>
@@ -13,6 +14,7 @@
         <p>{{ is.isAdimlar.lenght }} tane iş adimi bulunuyor</p>
     </div>
 </div>
+</router-link>
 </div>
 </div>
 </template>
