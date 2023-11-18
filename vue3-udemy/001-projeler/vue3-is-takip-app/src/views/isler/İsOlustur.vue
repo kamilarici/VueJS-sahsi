@@ -20,11 +20,13 @@ import useStorage from '../../composables/useStorage';
 import useCollection from '../../composables/useCollection'
 import getUser from '../../composables/getUser'
 import {tarih} from '@/firebase/config'
+import { useRouter } from 'vue-router';
 
 
 
 export default {
     setup(){
+      const router=useRouter();
         const baslik=ref('')
         const aciklama=ref('')
         const basTarih=ref('')
@@ -43,7 +45,7 @@ export default {
             if(file.value){
               await resimYukle(file.value)
               // console.log('resim yüklendi,url:',url.value)
-              await belgeEkle({
+             const res= await belgeEkle({
                 baslik:baslik.value,
                 aciklama:aciklama.value,
                 kullaniciId:kullanici.value.uid,
@@ -58,6 +60,7 @@ export default {
               })
               if(!hataCollection.value){
                 console.log('is eklendi')
+                router.push({name:'İsDetay',params:{id:res.id}})
               }
 
 

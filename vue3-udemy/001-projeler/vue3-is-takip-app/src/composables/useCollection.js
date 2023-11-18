@@ -7,7 +7,8 @@ const useCollection=(koleksiyon)=>{
     const belgeEkle=async(belge)=>{
         hataCollection.value=null
         try {
-            await firestoreRef.collection(koleksiyon).add(belge)
+            const res= await firestoreRef.collection(koleksiyon).add(belge)
+            return res
 
         } catch (error) {
             hataCollection.value='belge eklenemedi'
