@@ -4,4 +4,13 @@ import router from './router'
 
 
 import './assets/main.css'
-createApp(App).use(router).mount('#app')
+
+import { authRef } from './firebase/config'
+let app;
+
+authRef.onAuthStateChanged(()=>{
+    if(!app){
+        app=createApp(App).use(router).mount('#app')
+    }
+})
+

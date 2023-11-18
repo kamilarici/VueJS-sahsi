@@ -3,12 +3,24 @@ import Home from '../views/Home.vue'
 import Login from '../views/auth/Login.vue'
 import Signup from '../views/auth/Signup.vue'
 import İsOlustur from '@/views/isler/İsOlustur.vue'
+import { authRef } from '@/firebase/config'
+
+const authGiris=(to,from,next)=>{
+  let kullanici=authRef.currentUser
+
+  if(!kullanici){
+    next({name:'Login'})
+  }else{
+    next()
+  }
+}
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    beforeEnter:authGiris
   },
   {
     path: '/login',
@@ -25,7 +37,8 @@ const routes = [
   {
     path: '/is-olustur',
     name: 'İsOlustur',
-    component: İsOlustur
+    component: İsOlustur,
+    beforeEnter:authGiris
 
   }
 
