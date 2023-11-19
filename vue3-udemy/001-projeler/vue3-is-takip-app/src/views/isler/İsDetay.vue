@@ -12,7 +12,7 @@
       </div>
       <div class="work-list">
         <h2>İs Adımlar</h2>
-        <IsAdimEkle v-if="kullaniciİs" :is="İs"/>
+        <IsAdimEkle v-if="kullaniciİs" :is="is"/>
         <button v-if="kullaniciİs" @click="handleDelete">İsi Sil</button>
       </div>
     </div>

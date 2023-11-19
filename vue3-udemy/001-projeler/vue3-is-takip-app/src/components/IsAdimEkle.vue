@@ -16,18 +16,25 @@
 
 <script>
 import { ref } from 'vue';
+
+import useDocument from '../composables/useDocument';
 export default {
 props:['is'],
 setup(props) {
   const isAdimi=ref(null)  
   const formGoster=ref(false)
 
+  const {belgeGuncelle}=useDocument('isler',props.is.id)
+
   const handleSubmit=async()=>{
     const yeniIsAdimi={
         isAdimi:isAdimi.value,
         id:Math.floor(Math.random()*100000)
     }
-    console.log(yeniIsAdimi)
+    // console.log([...props.is.isAdimlar,yeniIsAdimi])
+    const res=await belgeGuncelle({
+        isAdimlar:[...props.is.isAdimlar,yeniIsAdimi]
+    })
     isAdimi.value=null
     formGoster.value=false
   }

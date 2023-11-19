@@ -18,7 +18,19 @@ const useDocument=(koleksiyon,id)=>{
         }
 
     }
-return {hata,belgeSil}
+
+    const belgeGuncelle=async(isAdimi)=>{
+        hata.value=null
+        try {
+            const res=await belgeRef.update(isAdimi)
+                return res
+                
+            
+        } catch (error) {
+            hata.value='belge güncellenemedi'
+        }
+    }
+return {hata,belgeSil,belgeGuncelle}
 
 }
 
