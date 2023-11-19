@@ -2,14 +2,15 @@ import {ref} from 'vue'
 import  {firestoreRef} from '../firebase/config'
 
 
-getDocument=(koleksiyon,id)=>{
+const getDocument=(koleksiyon,id)=>{
     let belge=ref(null)
     let hataDocument=ref(null)
     let belgeRef=firestoreRef.collection(koleksiyon).doc(id)
 
 
     belgeRef.onSnapshot(doc=>{
-        if(doc.data){
+        // console.log(doc.data())
+        if(doc.data()){
             belge.value={...doc.data(),id:doc.id}
             hataDocument.value=null
         }else{
