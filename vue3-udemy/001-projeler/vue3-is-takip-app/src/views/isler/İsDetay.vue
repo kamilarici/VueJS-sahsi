@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="error" v-if="hataDocument">{{ hataDocument }}</div>
-    <div v-if="is" class="work-details">
+    <div v-if="is && !hataDocument" class="work-details">
       <div class="work-info">
         <div class="image">
           <img :src="is.resimUrl" />
@@ -12,7 +12,7 @@
       </div>
       <div class="work-list">
         <h2>İs Adımlar</h2>
-        <button v-if="kullaniciİs">İsi Sil</button>
+        <button v-if="kullaniciİs" @click="handleDelete">İsi Sil</button>
       </div>
     </div>
   </div>
@@ -21,6 +21,7 @@
 <script>
 import getDocument from "@/composables/getDocument";
 import getUser from "@/composables/getUser";
+import useDocument from "@/composables/useDocument";
 import { computed } from "vue";
 
 export default {
@@ -31,7 +32,11 @@ export default {
     const kullaniciİs=computed(()=>{
       return is.value && kullanici.value && kullanici.value.uid==is.value.kullaniciId
     })
-    return { hataDocument, is,kullaniciİs };
+    const {belgeSil}=useDocument('isler',props.id)
+    const handleDelete=async()=>{
+      await belgeSil()
+    }
+    return { hataDocument, is,kullaniciİs,handleDelete };
   },
 };
 </script>
