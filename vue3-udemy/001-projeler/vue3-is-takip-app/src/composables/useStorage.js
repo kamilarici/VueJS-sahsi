@@ -22,7 +22,18 @@ const useStorage=()=>{
             
         }
     }
-    return {resimYukle,url,fileYol,hata}
+
+    const resimSil=async (yol)=>{
+        const storage=storageRef.ref(yol);
+
+        try {
+            await storage.delete()
+        } catch (error) {
+            hata.value=error
+        }
+
+    }
+    return {resimYukle,url,fileYol,hata,resimSil}
 
 }
 export default  useStorage
