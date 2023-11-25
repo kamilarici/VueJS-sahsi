@@ -2,6 +2,7 @@
 <div>
 
   <Navbar/>
+  <!-- 1 -->
   <div class="content">
     
     <router-view/>
