@@ -4,7 +4,7 @@
 <router-link :to="{name:'İsDetay',params:{id:is.id}}" >
     <div class="single">
     <div class="thumbnail">
-        <img :src="is.resimUrl" alt="">
+        <img :src="is.resimUrl" alt="isresim1">
     </div>
     <div class="info">
         <h3>{{ is.baslik }}</h3>
