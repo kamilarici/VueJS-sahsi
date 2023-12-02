@@ -1,0 +1,152 @@
+<template>
+  <div class="form-grid">
+    <div style="grid-column: 1/3"><h2>Company</h2></div>
+
+    <div>Name</div>
+    <div>string</div>
+
+    <div>Size</div>
+    <div>
+      <v-select
+        v-model="form.company.size"
+        prepend-icon="sort"
+        :label="'Size'"
+        :items="companySizeItems"
+        :rules="rules.companySize"></v-select>
+    </div>
+
+    <div>Segment</div>
+    <div>v-select</div>
+    
+    <div>Segment description</div>
+    <div>string (only if segment === Other)</div>
+
+    <div>Country</div>
+    <div>v-select</div>  
+
+    <div>Language</div>
+    <div>v-select</div>
+
+    <div>Channel</div>
+    <div>v-select ("Chat" | "Phone" | "Outbound" | "Email")</div>
+
+    <div>Referer</div>
+    <div>string (not required)</div>
+
+
+    <div style="grid-column: 1/3"><h2>Contact</h2></div>
+
+    <div>Firstname</div>
+    <div>string</div>  
+
+    <div>Lastname</div>
+    <div>string</div>  
+    
+    <div>Email</div>
+    <div>string</div>  
+
+    <div>Mobile</div>
+    <div>string</div>  
+
+  </div>
+</template>
+
+<script setup lang="ts">
+  import { ref, reactive, computed, onMounted, watch, onBeforeMount } from "vue";
+  import { ReactiveUI } from "@/reactives/reactive.ui";
+  import { CX, type Organization, type Rules, type Selectable } from "$ticore";
+  import { SERVICE } from "@/modules/service";
+  import { useAuthStore } from "@/stores/auth/auth-store";
+  import { VALIDATOR, translate } from "@/helper/global-shortcut";
+
+  const authStore = useAuthStore();
+
+  type NewLeadForm = {
+    company: {
+      name: string;
+      size: Organization.Size;
+    };
+  };
+  const form = reactive<NewLeadForm>({
+    company: {
+      name: "",
+      size: "medium"
+    }
+  });
+
+  const rules: Rules = {
+    companySize: [VALIDATOR.required]
+  };
+
+  async function submit(){
+    // validate
+    // if valid, console.log(form)
+  }
+
+  const companySizeItems = computed<Selectable<Organization.Size>[]>(() => {
+    return [
+      { title: translate("master.companySize.noWork"), value: "no-work" },
+      { title: translate("master.companySize.selfEmployed"), value: "self-employed" },
+      { title: translate("master.companySize.micro"), value: "micro" },
+      { title: translate("master.companySize.small"), value: "small" },
+      { title: translate("master.companySize.medium"), value: "medium" },
+      { title: translate("master.companySize.big"), value: "big" },
+      { title: translate("master.companySize.large"), value: "large" },
+      { title: translate("master.companySize.huge"), value: "huge" },
+      { title: translate("master.companySize.globalCorporate"), value: "global-corporate" }
+    ];
+  });
+
+  onMounted(() => {
+    console.log(`the page is now mounted.`);
+  });
+  onBeforeMount(() => {
+    console.log(`the page is mounting.`);
+  });
+</script>
+
+<style scoped>
+
+.form-grid {
+    display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px;
+}
+
+.form-grid > div {
+    padding: 10px;
+    border: 1px solid #eee;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+  }
+
+  .form-grid > div {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .form-grid h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #333;
+  }
+
+  .v-select-container {
+    width: 100%;
+  }
+
+  .v-text-field-container {
+    width: 100%;
+  }
+
+  .submit-btn-container {
+    grid-column: 1/3;
+    text-align: center;
+    margin-top: 20px;
+  }
+</style>
