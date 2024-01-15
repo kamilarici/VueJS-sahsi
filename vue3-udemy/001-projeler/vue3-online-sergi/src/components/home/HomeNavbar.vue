@@ -16,8 +16,15 @@
 </template>
 
 <script>
+import {firebase,authRef} from '@firebase/config'
 export default {
 
+
+  setup(){
+    const handleGiris=async ()=>{
+      
+    }
+  }
 }
 </script>
 
