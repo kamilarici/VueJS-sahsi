@@ -1,8 +1,16 @@
 {
-    "yapilacaklar":[
-        {"id":1,"baslik":"kitap oku","icerik":"harry potter kitabından 30 sayfa oku","yapildi":true},
-        {"id":2,"baslik":"dizi izle","icerik":"kizilcik","yapildi":false},
-        {"id":3,"baslik":"alisveris","icerik":"un","yapildi":false},
-        {"id":4,"baslik":"alisveris","icerik":"un","yapildi":false}
-    ]
+  "yapilacaklar": [
+    {
+      "id": "1",
+      "baslik": "kitap oku",
+      "icerik": "harry potter kitabından 30 sayfa oku",
+      "yapildi": true
+    },
+    {
+      "id": "2",
+      "baslik": "dizi izle",
+      "icerik": "kizilcik",
+      "yapildi": false
+    }
+  ]
 }
