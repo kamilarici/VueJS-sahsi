@@ -1,4 +1,5 @@
 <template>
+    <div>
   <form >
     <label > Email:</label>
     <input v-model="email" type="email"/>
@@ -34,6 +35,17 @@
 </div>
 <p>İstekler:{{ istekler }}</p>
   </form>
+  <hr>
+  <hr>
+  <form @submit.prevent="handleSubmit" style="border: 1px solid red; height: 100px;">
+<label for="">Hobiler</label>
+<input type="text" v-model="aktifHobi" @keyup.alt="hobiEkle"/>
+<div v-for="hobi in hobiler" :key="hobi">
+<span @click="hobiSil(hobi)" >{{ hobi }}</span>
+</div>
+<button>Submit</button>
+  </form>
+  </div>
 </template>
 
 <script>
@@ -44,9 +56,33 @@ data() {
         email:"dfgd",
         yetki:"5",
         anlasma:true,
-        istekler:[]
+        istekler:[],
+        hobiler:[],
+        aktifHobi:""
     }
 },
+methods:{
+    hobiEkle($event){
+        // console.log($event)
+        if ($event.key=="," && this.aktifHobi){
+            if(!this.hobiler.includes(this.aktifHobi)){
+                this.hobiler.push(this.aktifHobi)
+
+            }
+            this.aktifHobi=""
+        }
+    },
+    hobiSil(hobi){
+        this.hobiler=this.hobiler.filter(item=>{
+            return hobi !== item //eşit olmyanları dön
+        })
+    },
+    handleSubmit(){
+     console.log(this.hobiler)   
+     this.aktifHobi=""
+    },
+   
+}
 }
 </script>
 
