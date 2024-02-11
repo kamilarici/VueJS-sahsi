@@ -2,7 +2,7 @@
   "yapilacaklar": [
     {
       "id": "1",
-      "baslik": "kitap oku",
+      "baslik": "kitap oku guncelle",
       "icerik": "harry potter kitabından 30 sayfa oku",
       "yapildi": true
     },
@@ -10,6 +10,30 @@
       "id": "2",
       "baslik": "dizi izle",
       "icerik": "kizilcik",
+      "yapildi": true
+    },
+    {
+      "id": 71600,
+      "baslik": "yeni ",
+      "icerik": "yeni içerik",
+      "yapildi": false
+    },
+    {
+      "id": 50898,
+      "baslik": "yeni1",
+      "icerik": "yeni 1 içerik",
+      "yapildi": false
+    },
+    {
+      "id": "12633",
+      "baslik": "gdfdfgd  şşşşş",
+      "icerik": "dfgdg ",
+      "yapildi": true
+    },
+    {
+      "id": "43282",
+      "baslik": "sdfdsdf",
+      "icerik": "sdfs",
       "yapildi": false
     }
   ]
